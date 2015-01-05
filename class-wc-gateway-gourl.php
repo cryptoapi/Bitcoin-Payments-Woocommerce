@@ -2,7 +2,7 @@
 /*
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
-Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Payment Gateway for WooCommerce 2.1+. Support product prices in Bitcoin/Altcoins directly and sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Bitstamp Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Dogecoin, Speedcoin, Darkcoin, Vertcoin, Reddcoin, Feathercoin, Vericoin, Potcoin payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
+Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Payment Gateway for WooCommerce 2.1+. Support product prices in Bitcoin/Altcoins directly and sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Cryptsy Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Dogecoin, Speedcoin, Darkcoin, Vertcoin, Reddcoin, Feathercoin, Vericoin, Potcoin payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
 Version: 			1.0.0
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
@@ -351,14 +351,16 @@ function gourl_wc_gateway_load()
 		    $from_Currency = urlencode($from_Currency);
 		    $to_Currency = urlencode($to_Currency);
 		
-		    $url = "http://www.google.com/finance/converter?a=".$amount."&from=".$from_Currency."&to=".$to_Currency;
+		    $url = "https://www.google.com/finance/converter?a=".$amount."&from=".$from_Currency."&to=".$to_Currency;
 		
 		    $ch = curl_init();
-		    $timeout = 30;
+		    $timeout = 20;
 		    curl_setopt ($ch, CURLOPT_URL, $url);
+		    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		    curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)");
 		    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+		    curl_setopt ($ch, CURLOPT_TIMEOUT, $timeout);
 		    $rawdata = curl_exec($ch);
 		    curl_close($ch);
 		    $data = explode('bld>', $rawdata);
@@ -597,6 +599,5 @@ function gourl_wc_gateway_load()
 
 
 
-
 }
-// end gourl_wc_gateway_load() 
+// end gourl_wc_gateway_load()    
