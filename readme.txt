@@ -26,7 +26,7 @@ Wordpress Plugin for WooCommerce Features -
 * Accept Bitcoin, Litecoin, Dogecoin, Speedcoin, Darkcoin, Vertcoin, Reddcoin, Feathercoin, Vericoin, Potcoin payments in WooCommerce
 * No Monthly Fee, Transaction Fee from 0%
 * Product Prices in Bitcoin/Altcoins directly and sends the amount straight to your business wallet.
-* Product Prices in USD/EUR/GBP/etc. Google/Bitstamp Live Exchange Rates
+* Product Prices in USD/EUR/GBP/etc. Google/Cryptsy Live Exchange Rates
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * You will see the bitcoin/altcoin payment statistics in one common table on your website. 
 * No Chargebacks, Global, Secure. All in automatic mode.
@@ -84,4 +84,4 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 = 1.0.0 =
 Initial Release
       
-  
+   
