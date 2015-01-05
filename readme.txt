@@ -37,10 +37,26 @@ Please note you need to install also - [GoUrl Wordpress Plugin with Payment Gate
 
 Plugin Page: [https://gourl.io/bitcoin-payments-woocommerce.html](https://gourl.io/bitcoin-payments-woocommerce.html)
 
+Twitter: [https://twitter.com/CryptocoinAPI](https://twitter.com/CryptocoinAPI)
+
+Github: [https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
+
 
 
 
 == Installation ==
+
+= Minimum Requirements =
+
+* WooCommerce 2.1 or higher
+
+= Automatic installation =
+
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't need to leave your web browser. To do an automatic install of GoUrl Bitcoin/Altcoin Gateway for WooCommerce, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+
+In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you've found our plugin you can view details about it such as the the rating and description. Most importantly, of course, you can install it by simply clicking Install Now.
+
+= Manual Installation =
 
 * Go to Wordpress Plugins > Add New
 * Click Upload Plugin Zip File
