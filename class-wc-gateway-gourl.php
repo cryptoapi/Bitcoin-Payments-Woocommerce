@@ -3,7 +3,7 @@
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
 Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Payment Gateway for WooCommerce 2.1+. Support product prices in Bitcoin/Altcoins directly and sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Cryptsy Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Dogecoin, Speedcoin, Darkcoin, Vertcoin, Reddcoin, Feathercoin, Vericoin, Potcoin payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.0.0
+Version: 			1.0.1
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 License: 			GPLv2
@@ -174,9 +174,9 @@ function gourl_wc_gateway_load()
 			$this->id                 	= 'gourlpayments';
 			$this->icon         	  	= apply_filters('woocommerce_gourlpayments_icon', plugin_dir_url( __FILE__ ).'gourlpayments.png' );
 			$this->method_title       	= __( 'GoUrl Bitcoin/Altcoins', GOURLWC );
-			$this->method_description  	= __( '<a target="_blank" href="https://gourl.io/bitcoin-payments-woocommerce.html">Plugin Homepage &#187;</a>', GOURLWC ) . "<br>";
+			$this->method_description  	= "<img style='float:left; margin-right:15px' src='".plugin_dir_url( __FILE__ )."gourlpayments.png'>";
+			$this->method_description  .= __( '<a target="_blank" href="https://gourl.io/bitcoin-payments-woocommerce.html">Plugin Homepage &#187;</a>', GOURLWC ) . "<br>";
 			$this->method_description  .= __( '<a target="_blank" href="https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce">Plugin on Github - 100% Free Open Source &#187;</a>', GOURLWC ) . "<br><br>";
-			$this->method_description  .= __( 'Accept Bitcoin, Litecoin, Dogecoin, Speedcoin, Darkcoin, Vertcoin, Reddcoin, Feathercoin, Vericoin, Potcoin payments online in WooCommerce.', GOURLWC ).'<br/>';
 			$this->has_fields         	= false;
 				
 			if (class_exists('gourlclass') && defined('GOURL') && defined('GOURL_ADMIN') && is_object($gourl))
@@ -191,7 +191,6 @@ function gourl_wc_gateway_load()
 				}
 				else 
 				{
-					$this->method_description .= __( 'If you use multiple stores, please create separate <a target="_blank" href="https://gourl.io/editrecord/coin_boxes/0">GoUrl Payment Box</a> (with unique payment box public/private keys) for each of your stores/websites. Do not use the same GoUrl Payment Box with the same public/private keys on your different websites/stores.', GOURLWC );
 					$this->payments 			= $gourl->payments(); 		// Activated Payments
 					$this->coin_names			= $gourl->coin_names(); 	// All Coins
 					$this->languages			= $gourl->languages(); 		// All Languages
@@ -202,6 +201,8 @@ function gourl_wc_gateway_load()
 				$this->method_description .= '<div class="error"><p>' .sprintf(__( '<b>You need to install GoUrl Bitcoin Gateway Main Plugin also. Go to - <a href="%s">Bitcoin Gateway plugin page</a></b> &#160; &#160; &#160; &#160; Information: &#160; <a href="https://gourl.io/bitcoin-wordpress-plugin.html">Plugin Homepage</a> &#160; &#160; &#160; <a href="https://wordpress.org/plugins/gourl-bitcoin-payment-gateway-paid-downloads-membership/">WordPress.org Plugin Page</a> ', GOURLWC ), $this->mainplugin_url).'</p></div>';
 			}
 			
+			$this->method_description  .= sprintf(__( 'Accept %s payments online in WooCommerce.', GOURLWC), ($this->coin_names?ucwords(implode(", ", $this->coin_names)):"Bitcoin, Litecoin, Dogecoin, Speedcoin, Darkcoin, Vertcoin, Reddcoin, Feathercoin, Vericoin, Potcoin")).'<br/>';
+			$this->method_description .= __( 'If you use multiple stores, please create separate <a target="_blank" href="https://gourl.io/editrecord/coin_boxes/0">GoUrl Payment Box</a> (with unique payment box public/private keys) for each of your stores/websites. Do not use the same GoUrl Payment Box with the same public/private keys on your different websites/stores.', GOURLWC );
 			$this->method_description .= '<br/><br/>';
 				
 
@@ -214,7 +215,7 @@ function gourl_wc_gateway_load()
 			$this->enabled       = $this->get_option( 'enabled' );
 			$this->title        = $this->get_option( 'title' );
 			$this->description  = $this->get_option( 'description' );
-			$this->emultiplier  = $this->get_option( 'emultiplier' );
+			$this->emultiplier  = trim(str_replace("%", "", $this->get_option( 'emultiplier' )));
 			$this->ostatus  	= $this->get_option( 'ostatus' );
 			$this->ostatus2  	= $this->get_option( 'ostatus2' );
 			$this->deflang  	= $this->get_option( 'deflang' );
@@ -293,40 +294,40 @@ function gourl_wc_gateway_load()
    					'title' 		=> __('Exchange Rate Multiplier', GOURLWC ),
    					'type' 			=> 'text',
    					'default' 		=> '1.00',
-    				'description' 	=> sprintf(__('The system uses the multiplier rate with today LIVE cryptocurrency exchange rates (updated every 30 minutes) when calculating from fiat currency (USD, EUR, etc) to %s. <br />Example: <b>1.05</b> - will add an extra 5%% to the total price in bitcoin/altcoins, <b>0.85</b> - 15%% discount for the price in bitcoin/altcoins. Default: 1.00 ', GOURLWC ), $coins)
+    				'description' 	=> sprintf(__('The system uses the multiplier rate with today LIVE cryptocurrency exchange rates (which are updated every 30 minutes) when the transaction is calculating from a fiat currency (e.g. USD, EUR, etc) to %s. <br />Example: <b>1.05</b> - will add an extra 5%% to the total price in bitcoin/altcoins, <b>0.85</b> - will be a 15%% discount for the price in bitcoin/altcoins. Default: 1.00 ', GOURLWC ), $coins)
     			),
     			'advanced' 		=> array(
    					'title'       	=> __( 'Advanced options', GOURLWC ),
    					'type'        	=> 'title',
-   					'description' 	=> '',
+   					'description' 	=> ''
     			),
 	    		'ostatus' 		=> array(
    					'title' 		=> __('Order Status - Cryptocoin Payment Received', GOURLWC ),
    					'type' 			=> 'select',
    					'options' 		=> $this->statuses,
    					'default' 		=> 'processing',
-   					'description' 	=> sprintf(__("Payment received successfully from the customer. You will see the bitcoin/altcoin payment statistics in one common table <a href='%s'>'All Payments'</a> with details of all received payments.<br/>If you sell digital products / software downloads you can use the status 'Completed' showing that customer has instant access to your digital products", GOURLWC), $url2),
+	    			'description' 	=> sprintf(__("Payment is received successfully from the customer. You will see the bitcoin/altcoin payment statistics in one common table <a href='%s'>'All Payments'</a> with details of all received payments.<br/>If you sell digital products / software downloads you can use the status 'Completed' showing that particular customer already has instant access to your digital products", GOURLWC), $url2)
     			),
 	    		'ostatus2' 		=> array(
 	    			'title' 		=> __('Order Status - Previously Received Payment Confirmed', GOURLWC ),
 	    			'type' 			=> 'select',
 	    			'options' 		=> $this->statuses,
 	    			'default' 		=> 'completed',
-	    			'description' 	=> __("About one hour after payment is received, the bitcoin transaction should get 6 confirmations (for other cryptocoins ~ 20-30min).<br>Transaction confirmation is needed to prevent double spending of the same money.", GOURLWC),
+	    			'description' 	=> __("About one hour after the payment is received, the bitcoin transaction should get 6 confirmations (for transactions using other cryptocoins ~ 20-30min).<br>A transaction confirmation is needed to prevent double spending of the same money.", GOURLWC)
 	    		),
     			'deflang' 		=> array(
     				'title' 		=> __('PaymentBox Language', GOURLWC ),
     				'type' 			=> 'select',
     				'options' 		=> $this->languages,
     				'default' 		=> 'en',
-    				'description' 	=> __("Default Crypto Payment Box Localisation", GOURLWC),
+    				'description' 	=> __("Default Crypto Payment Box Localisation", GOURLWC)
     			),
     			'defcoin' 		=> array(
    					'title' 		=> __('PaymentBox Default Coin', GOURLWC ),
    					'type' 			=> 'select',
    					'options' 		=> $this->payments,
    					'default' 		=> key($this->payments),
-   					'description' 	=> sprintf(__( 'Default Coin in Crypto Payment Box. &#160; Activated Payments : <a href="%s">%s</a>', GOURLWC ), $url, $text),
+   					'description' 	=> sprintf(__( 'Default Coin in Crypto Payment Box. &#160; Activated Payments : <a href="%s">%s</a>', GOURLWC ), $url, $text)
     			),
 	    		'iconwidth'			=> array(
 					'title'       	=> __( 'Icon Width', GOURLWC ),
@@ -572,7 +573,7 @@ function gourl_wc_gateway_load()
 	 *  The function will automatically appear for each new payment usually two times :  
 	 *  a) when a new payment is received, with values: $box_status = cryptobox_newrecord, $payment_details[is_confirmed] = 0
 	 *  b) and a second time when existing payment is confirmed (6+ confirmations) with values: $box_status = cryptobox_updated, $payment_details[is_confirmed] = 1.
-	 *	
+	 *
 	 *  But sometimes if the payment notification is delayed for 20-30min, the payment/transaction will already be confirmed and the function will
 	 *  appear once with values: $box_status = cryptobox_newrecord, $payment_details[is_confirmed] = 1
 	 *  
@@ -600,4 +601,4 @@ function gourl_wc_gateway_load()
 
 
 }
-// end gourl_wc_gateway_load()    
+// end gourl_wc_gateway_load()
