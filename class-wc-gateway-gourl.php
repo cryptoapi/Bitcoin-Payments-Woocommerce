@@ -67,7 +67,7 @@ function gourl_wc_gateway_load()
 			{
 				$unrecognised_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.GOURL.'payments&s=unrecognised">'.__( 'Unrecognised', GOURLWC ).'</a>';
 				array_unshift($links, $unrecognised_link);
-				$payments_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.GOURL.'payments&s=woocommerce">'.__( 'Payments', GOURLWC ).'</a>';
+				$payments_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.GOURL.'payments&s=gourlwoocommerce">'.__( 'Payments', GOURLWC ).'</a>';
 				array_unshift($links, $payments_link);
 			}
 		}
@@ -601,4 +601,4 @@ function gourl_wc_gateway_load()
 
 
 }
-// end gourl_wc_gateway_load()
+// end gourl_wc_gateway_load()               
