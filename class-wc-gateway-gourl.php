@@ -161,7 +161,7 @@ function gourl_wc_gateway_load()
 		private $languages 			= array();
 		private $coin_names			= array();
 		private $statuses 			= array('processing' => 'Processing Payment', 'on-hold' => 'On Hold', 'completed' => 'Completed');
-		private $mainplugin_url		= "/wp-admin/plugin-install.php?tab=search&type=term&s=GoUrl+Bitcoin+Payment+Gateway+Downloads";
+		private $mainplugin_url		= "";
 		
 		
 		/*
@@ -172,6 +172,7 @@ function gourl_wc_gateway_load()
 	    	global $gourl;
 	    	
 			$this->id                 	= 'gourlpayments';
+			$this->mainplugin_url 		= get_bloginfo('wpurl') . "/wp-admin/plugin-install.php?tab=search&type=term&s=GoUrl+Bitcoin+Payment+Gateway+Downloads";
 			$this->icon         	  	= apply_filters('woocommerce_gourlpayments_icon', plugin_dir_url( __FILE__ ).'gourlpayments.png' );
 			$this->method_title       	= __( 'GoUrl Bitcoin/Altcoins', GOURLWC );
 			$this->method_description  	= "<img style='float:left; margin-right:15px' src='".plugin_dir_url( __FILE__ )."gourlpayments.png'>";
@@ -588,4 +589,4 @@ function gourl_wc_gateway_load()
 
 
 }
-// end gourl_wc_gateway_load()           
+// end gourl_wc_gateway_load()    
