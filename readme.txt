@@ -3,15 +3,14 @@ Contributors: gourl, GoUrl.io
 Plugin Name: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io 
-Tags: woocommerce, bitcoin, bitcoins, bitcoin payment, bitcoin payments, paypal, gourl, osCommerce, woocommerce payment gateway, btc, coinbase, wp ecommerce, bitpay, shopping cart, ecommerce, commerce, eshop, payment gateway, payment plugin, payment, e-commerce, ecommerce, fulfillment, woo commerce, wp e-commerce, credit, accept bitcoin, bitcoin payments, bitcoin plugin, bitcoin wordpress plugin, bitcoin store, BitPay, cart, checkout, e-commerce, online store, payment, payment gateway, sell, shortcode, litecoin, dogecoin, speedcoin, darkcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin
+Tags: woocommerce, bitcoin, bitcoins, bitcoin payment, bitcoin payments, paypal, gourl, cryptocurrency, crypto currency, osCommerce, woocommerce payment gateway, btc, coinbase, wp ecommerce, bitpay, shopping cart, commerce, eshop, payment gateway, payment plugin, payment, e-commerce, ecommerce, fulfillment, woo commerce, wp e-commerce, credit, accept bitcoin, bitcoin payments, bitcoin plugin, bitcoin wordpress plugin, bitcoin store, BitPay, cart, authorize, shipping, shop, stock control, tax, checkout, e-commerce, online store, payment, payment gateway, sell, shortcode, litecoin, dogecoin, speedcoin, darkcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin
 Requires at least: 3.5
 Tested up to: 4.2
-Stable Tag: 1.0.2
+Stable Tag: 1.0.3
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Provides a Bitcoin Payment Gateway for WooCommerce 2.1+. Accept Bitcoins, Litecoin, Dogecoin, Darkcoin, Reddcoin, etc. Payments Online
-
+Provides Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher. Accept Bitcoin, Litecoin, Dogecoin, Paycoin, etc Payments on Your Website
 
 
 
@@ -22,15 +21,15 @@ See [Screenshots](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
 Wordpress Plugin for WooCommerce Features -
 
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
-* Provides a Payment Gateway for WooCommerce 2.1 +
-* Accept Bitcoin, Litecoin, Dogecoin, Speedcoin, Darkcoin, Vertcoin, Reddcoin, Feathercoin, Vericoin, Potcoin payments in WooCommerce
+* Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
+* Accept Bitcoin, Litecoin, Speedcoin, Dogecoin, Paycoin, Darkcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin payments in WooCommerce
 * No Monthly Fee, Transaction Fee from 0%
 * Product Prices in Bitcoin/Altcoins directly and sends the amount straight to your business wallet.
-* Product Prices in USD/EUR/GBP/etc. Google/Cryptsy Live Exchange Rates
+* Product Prices in USD/EUR/GBP/etc. Google/Bitstamp/Cryptsy Live Exchange Rates
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * You will see the bitcoin/altcoin payment statistics in one common table on your website. 
 * No Chargebacks, Global, Secure. All in automatic mode.
-* Free Plugin Support for You
+* [Free Tech Support](https://gourl.io/view/contact/Contact_Us.html) for You
 
 Please note you need to install also - [GoUrl Wordpress Plugin with Payment Gateway](https://wordpress.org/plugins/gourl-bitcoin-payment-gateway-paid-downloads-membership/)
 
@@ -48,7 +47,7 @@ Github: [https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce](https://gith
 
 = Minimum Requirements =
 
-* WooCommerce 2.1 or higher
+* WooCommerce 2.1 or higher version
 
 = Automatic installation =
 
@@ -81,6 +80,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog ==
 
+= 1.0.3 =
+Support new coin - Paycoin XPY
+
 = 1.0.2 =
 Minor updates
 
@@ -91,4 +93,4 @@ Minor updates
 = 1.0.0 =
 Initial Release
    
-   
+              
