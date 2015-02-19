@@ -3,10 +3,10 @@ Contributors: gourl, GoUrl.io
 Plugin Name: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io 
-Tags: woocommerce, bitcoin, bitcoins, bitcoin payment, bitcoin payments, paypal, gourl, cryptocurrency, crypto currency, osCommerce, woocommerce payment gateway, btc, coinbase, wp ecommerce, bitpay, shopping cart, commerce, eshop, payment gateway, payment plugin, payment, e-commerce, ecommerce, fulfillment, woo commerce, wp e-commerce, credit, accept bitcoin, bitcoin payments, bitcoin plugin, bitcoin wordpress plugin, bitcoin store, BitPay, cart, authorize, shipping, shop, stock control, tax, checkout, e-commerce, online store, payment, payment gateway, sell, shortcode, litecoin, dogecoin, speedcoin, darkcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin
+Tags: woocommerce, bitcoin, bitcoins, bitcoin payments, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, paycoin, reddcoin, speedcoin, darkcoin, potcoin, feathercoin, vertcoin, vericoin
 Requires at least: 3.5
 Tested up to: 4.2
-Stable Tag: 1.0.3
+Stable Tag: 1.0.4
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog ==
 
+= 1.0.4 =
+Customize payment logo
+
 = 1.0.3 =
 Support new coin - Paycoin XPY
 
@@ -89,8 +92,7 @@ Minor updates
 = 1.0.1 =
 Minor updates
 
-
 = 1.0.0 =
 Initial Release
+
    
-              
