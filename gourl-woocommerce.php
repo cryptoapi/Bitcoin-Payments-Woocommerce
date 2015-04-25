@@ -2,8 +2,8 @@
 /*
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
-Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoins Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Cryptsy Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Dogecoin, Paycoin, Reddcoin, Speedcoin, Darkcoin, Potcoin, Feathercoin, Vertcoin, Vericoin payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.0.5
+Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoin Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Cryptsy Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
+Version: 			1.1.0
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 License: 			GPLv2
@@ -169,7 +169,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		
 		private $payments 			= array();
 		private $languages 			= array();
-		private $coin_names			= array('BTC' => 'bitcoin', 'LTC' => 'litecoin', 'XPY' => 'paycoin', 'DOGE' => 'dogecoin', 'SPD' => 'speedcoin', 'RDD' => 'reddcoin', 'DRK' => 'darkcoin', 'POT' => 'potcoin', 'FTC' => 'feathercoin', 'VTC' => 'vertcoin', 'VRC' => 'vericoin');
+		private $coin_names			= array('BTC' => 'bitcoin', 'LTC' => 'litecoin', 'XPY' => 'paycoin', 'DOGE' => 'dogecoin', 'DASH' => 'dash', 'SPD' => 'speedcoin', 'RDD' => 'reddcoin', 'POT' => 'potcoin', 'FTC' => 'feathercoin', 'VTC' => 'vertcoin', 'VRC' => 'vericoin', 'PPC' => 'peercoin');
 		private $statuses 			= array('processing' => 'Processing Payment', 'on-hold' => 'On Hold', 'completed' => 'Completed');
 		private $mainplugin_url		= '';
 		private $url				= '';
@@ -204,9 +204,9 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 			if (class_exists('gourlclass') && defined('GOURL') && defined('GOURL_ADMIN') && is_object($gourl))
 			{ 
-				if (true === version_compare(GOURL_VERSION, '1.2.8', '<'))
+				if (true === version_compare(GOURL_VERSION, '1.3', '<'))
 				{
-					if ($enabled) $this->method_description .= '<div class="error"><p>' .sprintf(__( '<b>Your GoUrl Bitcoin Gateway <a href="%s">Main Plugin</a> version is too old. Requires 1.2.8 or higher version. Please <a href="%s">update</a> to latest version.</b>  &#160; &#160; &#160; &#160; Information: &#160; <a href="https://gourl.io/bitcoin-wordpress-plugin.html">Main Plugin Homepage</a> &#160; &#160; &#160; <a href="https://wordpress.org/plugins/gourl-bitcoin-payment-gateway-paid-downloads-membership/">WordPress.org Plugin Page</a>', GOURLWC ), GOURL_ADMIN.GOURL, $this->mainplugin_url).'</p></div>';
+					if ($enabled) $this->method_description .= '<div class="error"><p>' .sprintf(__( '<b>Your GoUrl Bitcoin Gateway <a href="%s">Main Plugin</a> version is too old. Requires 1.3 or higher version. Please <a href="%s">update</a> to latest version.</b>  &#160; &#160; &#160; &#160; Information: &#160; <a href="https://gourl.io/bitcoin-wordpress-plugin.html">Main Plugin Homepage</a> &#160; &#160; &#160; <a href="https://wordpress.org/plugins/gourl-bitcoin-payment-gateway-paid-downloads-membership/">WordPress.org Plugin Page</a>', GOURLWC ), GOURL_ADMIN.GOURL, $this->mainplugin_url).'</p></div>';
 				}
 				elseif (true === version_compare(WOOCOMMERCE_VERSION, '2.1', '<'))
 				{
@@ -282,7 +282,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	    	if (!$this->title)								$this->title 		= __('GoUrl Bitcoin/Altcoins');
 	    	if (!$this->description)						$this->description 	= __('Secure, anonymous payment with virtual currency', GOURLWC);
 	    	if (!isset($this->statuses[$this->ostatus])) 	$this->ostatus  	= 'processing';
-	    	if (!isset($this->statuses[$this->ostatus2])) 	$this->ostatus2 	= 'completed';
+	    	if (!isset($this->statuses[$this->ostatus2])) 	$this->ostatus2 	= 'processing';
 	    	if (!isset($this->languages[$this->deflang])) 	$this->deflang 		= 'en';
 	    		
 	    	if (!in_array($this->logo, $this->coin_names) && $this->logo != 'global') 					$this->logo = 'bitcoin';
@@ -311,7 +311,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 					'title'   	  	=> __( 'Enable/Disable', GOURLWC ),
 					'type'    	  	=> 'checkbox',
 					'default'	  	=> 'no',
-					'label'   	  	=> sprintf(__( 'Enable Bitcoin/Altcoins Payments in WooCommerce with <a href="%s">GoUrl Bitcoin Gateway</a>', GOURLWC ), $this->url3)
+					'label'   	  	=> sprintf(__( 'Enable Bitcoin/Altcoin Payments in WooCommerce with <a href="%s">GoUrl Bitcoin Gateway</a>', GOURLWC ), $this->url3)
 				),
 	    		'title'			=> array(
 					'title'       	=> __( 'Title', GOURLWC ),
@@ -354,7 +354,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	    			'title' 		=> __('Order Status - Previously Received Payment Confirmed', GOURLWC ),
 	    			'type' 			=> 'select',
 	    			'options' 		=> $this->statuses,
-	    			'default' 		=> 'completed',
+	    			'default' 		=> 'processing',
 	    			'description' 	=> __("About one hour after the payment is received, the bitcoin transaction should get 6 confirmations (for transactions using other cryptocoins ~ 20-30min).<br>A transaction confirmation is needed to prevent double spending of the same money.", GOURLWC)
 	    		),
     			'deflang' 		=> array(
@@ -422,7 +422,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 			echo '<h2>' . __( 'Information', GOURLWC ) . '</h2>' . PHP_EOL;
 			echo "<div class='woocommerce-error'>".__( "Please try a different payment method. Admin need to install and activate wordpress plugin 'GoUrl Bitcoin Gateway' (https://gourl.io/bitcoin-wordpress-plugin.html) to accept Bitcoin/Altcoin Payments online", GOURLWC )."</div>";
 		}
-		elseif (!$this->payments || !$this->defcoin || true === version_compare(WOOCOMMERCE_VERSION, '2.1', '<') || true === version_compare(GOURL_VERSION, '1.2.8', '<') || 
+		elseif (!$this->payments || !$this->defcoin || true === version_compare(WOOCOMMERCE_VERSION, '2.1', '<') || true === version_compare(GOURL_VERSION, '1.3', '<') || 
 				(array_key_exists($order->order_currency, $this->coin_names) && !array_key_exists($order->order_currency, $this->payments)))
 		{
 			echo '<h2>' . __( 'Information', GOURLWC ) . '</h2>' . PHP_EOL;
@@ -602,10 +602,10 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	    }
 	}
 	// end class WC_Gateway_GoUrl
-	
-	
-	
-	
+
+
+
+
 	
 	
 	/*
@@ -645,6 +645,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	}
-	// end gourl_wc_gateway_load()   
-	
+	// end gourl_wc_gateway_load()
+
 }
