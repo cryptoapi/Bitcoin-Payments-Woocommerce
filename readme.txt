@@ -6,7 +6,7 @@ Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, bitcoins, bitcoin payment, bitcoin payments, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, paycoin, reddcoin, speedcoin, dash, potcoin, feathercoin, vertcoin, vericoin, peercoin
 Requires at least: 3.5
 Tested up to: 4.2
-Stable Tag: 1.1.0
+Stable Tag: 1.1.2
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,11 +23,12 @@ Wordpress Plugin for WooCommerce Features -
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
 * Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin payments in WooCommerce
-* No Monthly Fee, Transaction Fee from 0%
-* Product Prices in Bitcoin/Altcoins directly and sends the amount straight to your business wallet
-* Product Prices in USD/EUR/GBP/etc. Google/Bitstamp/Cryptsy Live Exchange Rates
+* No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
+* Product Prices in Bitcoin/Altcoins directly or in USD/EUR/GBP/etc. Live Exchange Rates 
+* Get crypto payments straight to your bitcoin/altcoin wallet addresses
+* You can use Exchange Rate Multiplier and convert received Bitcoin/altcoins to [USD/EUR](https://gourl.io/#usd) later
+* Set prices in USD/EUR/etc. in the admin panel and display that prices in Bitcoins for the front-end user
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
-* You will see the bitcoin/altcoin payment statistics in one common table on your website. 
 * No Chargebacks, Global, Secure. All in automatic mode.
 * [Free Tech Support](https://gourl.io/view/contact/Contact_Us.html) for You
 
@@ -84,6 +85,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+= 1.1.2 =
+Set prices in USD/EUR/etc. in the admin panel and display that prices in Bitcoins for the front-end user
+
 = 1.1.0 =
 Added Peercoin 
 Spanish payment box localisation
@@ -105,3 +109,5 @@ Minor updates
 
 = 1.0.0 =
 Initial Release
+   
+ 

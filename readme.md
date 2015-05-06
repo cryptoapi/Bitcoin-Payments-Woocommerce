@@ -2,7 +2,7 @@
 GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 -----------------------------------------------------------
 
-Version 1.1.0
+Version 1.1.2
 
 **Wordpress Plugin provides a Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher.**
 
@@ -14,7 +14,7 @@ Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin,
 * Screenshots: [https://gourl.io/bitcoin-payments-woocommerce.html#screenshot](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
 * Requires at least: Wordpress 3.5 and WooCommerce 2.1
 * Tested up to: Wordpress 4.2 and WooCommerce 2.2 
-* Stable Tag: 1.1.0
+* Stable Tag: 1.1.2
 * License: GNU Version 2 or Any Later Version
 
 
@@ -22,14 +22,16 @@ Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin,
 
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
-* Accept Bitcoin and other cryptocurrency payments in WooCommerce
-* No Monthly Fee, Transaction Fee from 0%
-* Product Prices in Bitcoin/Altcoins directly and sends the amount straight to your business wallet.
-* Product Prices in USD/EUR/GBP/etc. Google/Bitstamp/Cryptsy Live Exchange Rates
+* Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin payments in WooCommerce
+* No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
+* Product Prices in Bitcoin/Altcoins directly or in USD/EUR/GBP/etc. Live Exchange Rates 
+* Get crypto payments straight to your bitcoin/altcoin wallet addresses
+* You can use Exchange Rate Multiplier and convert received Bitcoin/altcoins to [USD/EUR](https://gourl.io/#usd) later
+* Set prices in USD/EUR/etc. in the admin panel and display that prices in Bitcoins for the front-end user
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
-* You will see the bitcoin/altcoin payment statistics in one common table on your website. 
 * No Chargebacks, Global, Secure. All in automatic mode.
 * [Free Tech Support](https://gourl.io/view/contact/Contact_Us.html) for You
+
 
 
 # ![WooCommerce-Order-Page](https://gourl.io/images/woocommerce/screenshot-2.png)
@@ -68,4 +70,5 @@ Plugin Options
 
   
 # ![WooCommerce-Plugin-Options](https://gourl.io/images/woocommerce/screenshot-1.png)
-          
+  
+  
