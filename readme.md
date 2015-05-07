@@ -22,16 +22,26 @@ Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin,
 
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
-* Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin payments in WooCommerce
+* Accept Bitcoin/Altcoin payments in WooCommerce
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
-* Product Prices in Bitcoin/Altcoins directly or in USD/EUR/GBP/etc. Live Exchange Rates 
-* Get crypto payments straight to your bitcoin/altcoin wallet addresses
-* You can use Exchange Rate Multiplier and convert received Bitcoin/altcoins to [USD/EUR](https://gourl.io/#usd) later
-* Set prices in USD/EUR/etc. in the admin panel and display that prices in Bitcoins for the front-end user
+* Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert to USD/EUR/etc
+* Live Exchange Rates with additional Exchange Rate Multiplier (i.e. 1.05 - will add extra 5% to the total price in bitcoins).
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * No Chargebacks, Global, Secure. All in automatic mode.
 * [Free Tech Support](https://gourl.io/view/contact/Contact_Us.html) for You
 
+.
+
+**Three GoUrl Payment Integration Options -**
+
+* Standard Way - Product prices in USD/EUR/GBP/etc and use GoUrl Bitcoin/Altcoin Gateway together with paypal/credit card gateways.
+* You set product prices in USD/EUR/etc in the admin panel, and display that prices in Bitcoins for front-end users
+* You set product prices in Bitcoin/Altcoin directly
+
+.
+
+Screenshots
+----------------
 
 
 # ![WooCommerce-Order-Page](https://gourl.io/images/woocommerce/screenshot-2.png)
@@ -70,5 +80,5 @@ Plugin Options
 
   
 # ![WooCommerce-Plugin-Options](https://gourl.io/images/woocommerce/screenshot-1.png)
-  
+ 
   
