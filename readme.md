@@ -32,13 +32,14 @@ Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin,
 
 .
 
-**Three GoUrl Payment Integration Options -**
+**Three GoUrl Payment Integration Options for WooCommerce -**
 
-* Standard Way - Product prices in USD/EUR/GBP/etc and use GoUrl Bitcoin/Altcoin Gateway together with paypal/credit card gateways.
-* You set product prices in USD/EUR/etc in the admin panel, and display that prices in Bitcoins for front-end users
+* Standard Way - Product prices in USD/EUR/GBP/etc and use GoUrl Bitcoin/Altcoin Gateway together with paypal/credit card gateways
+* You set product prices in USD/EUR/etc in the admin panel, and display those prices in Bitcoins for front-end users
 * You set product prices in Bitcoin/Altcoin directly
 
 .
+
 
 Screenshots
 ----------------
@@ -81,4 +82,4 @@ Plugin Options
   
 # ![WooCommerce-Plugin-Options](https://gourl.io/images/woocommerce/screenshot-1.png)
  
-  
+    

@@ -357,7 +357,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 			$this->method_description  .= sprintf(__( '<a target="_blank" href="%s">Plugin on Github - 100%% Free Open Source &#187;</a>', GOURLWC ), "https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce") . "<br><br>";
 			$this->has_fields         	= false;
 
-			$enabled = ($this->get_option('enabled') == 'yes' || $this->get_option('enabled') == '1' || $this->get_option('enabled') === true) ? true : false;
+			$enabled = ((GOURLWC_AFFILIATE_KEY=='gourl' && $this->get_option('enabled')==='') || $this->get_option('enabled') == 'yes' || $this->get_option('enabled') == '1' || $this->get_option('enabled') === true) ? true : false;
 
 			if (class_exists('gourlclass') && defined('GOURL') && defined('GOURL_ADMIN') && is_object($gourl))
 			{ 
@@ -467,7 +467,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 				'enabled'		=> array(
 					'title'   	  	=> __( 'Enable/Disable', GOURLWC ),
 					'type'    	  	=> 'checkbox',
-					'default'	  	=> 'no',
+					'default'	  	=> (GOURLWC_AFFILIATE_KEY=='gourl'?'yes':'no'),
 					'label'   	  	=> sprintf(__( 'Enable Bitcoin/Altcoin Payments in WooCommerce with <a href="%s">GoUrl Bitcoin Gateway</a>', GOURLWC ), $this->url3)
 				),
 	    		'title'			=> array(
@@ -804,6 +804,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load()    
-
+ // end gourl_wc_gateway_load() 
+ 
 }

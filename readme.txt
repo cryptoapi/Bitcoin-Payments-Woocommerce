@@ -3,7 +3,7 @@ Contributors: gourl, GoUrl.io
 Plugin Name: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io 
-Tags: woocommerce, bitcoin, bitcoins, bitcoin payment, bitcoin payments, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, paycoin, reddcoin, speedcoin, dash, potcoin, feathercoin, vertcoin, vericoin, peercoin
+Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, paycoin, reddcoin, speedcoin, dash, potcoin, feathercoin, vertcoin, vericoin, peercoin, bitcoin
 Requires at least: 3.5
 Tested up to: 4.2
 Stable Tag: 1.1.2
@@ -25,16 +25,16 @@ Wordpress Plugin for WooCommerce Features -
 * Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin payments in WooCommerce
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
 * No Chargebacks, Global, Secure. All in automatic mode.
-* Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert to USD/EUR/etc
-* Live Exchange Rates with additional Exchange Rate Multiplier (i.e. 1.05 - will add extra 5% to the total price in bitcoins).
+* Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert cryptocurrency to USD/EUR/etc
+* Live Exchange Rates with additional Exchange Rate Multiplier (i.e. 1.05 - will add extra 5% to the total price in bitcoins)
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * [Free Tech Support](https://gourl.io/view/contact/Contact_Us.html) for You
 
 .
 
-= Three GoUrl Payment Integration Options - =
-* Standard Way - Product prices in USD/EUR/GBP/etc and use GoUrl Bitcoin/Altcoin Gateway together with paypal/credit card gateways.
-* You set product prices in USD/EUR/etc in the admin panel, and display that prices in Bitcoins for front-end users
+= Three GoUrl Payment Integration Options for WooCommerce - =
+* Standard Way - Product prices in USD/EUR/GBP/etc and use GoUrl Bitcoin/Altcoin Gateway together with paypal/credit card gateways
+* You set product prices in USD/EUR/etc in the admin panel, and display those prices in Bitcoins for front-end users
 * You set product prices in Bitcoin/Altcoin directly
 
 .
@@ -92,7 +92,10 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 == Changelog == 
 
 = 1.1.2 =
-Set prices in USD/EUR/etc. in the admin panel and display that prices in Bitcoins for the front-end user
+Three GoUrl Payment Integration Options for WooCommerce: 
+1) Standard Way - Product prices in USD/EUR/GBP/etc and use GoUrl Bitcoin/Altcoin Gateway together with paypal/credit card gateways. 
+2) You set product prices in USD/EUR/etc in the admin panel, and display those prices in Bitcoins for front-end users. 
+3) You set product prices in Bitcoin/Altcoin directly.
 
 = 1.1.0 =
 Added Peercoin 
@@ -115,4 +118,4 @@ Minor updates
 
 = 1.0.0 =
 Initial Release
- 
+     
