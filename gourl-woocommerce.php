@@ -3,7 +3,7 @@
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
 Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoin Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Cryptsy Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.1.2
+Version: 			1.1.3
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 License: 			GPLv2
@@ -26,7 +26,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	if (!defined('GOURLWC_AFFILIATE_KEY'))
 	{
 		DEFINE('GOURLWC_AFFILIATE_KEY', 	'gourl');
-		add_action( 'plugins_loaded', 		'gourl_wc_gateway_load', 0 );
+		add_action( 'plugins_loaded', 		'gourl_wc_gateway_load', 20 );
 		add_filter( 'plugin_action_links', 	'gourl_wc_action_links', 10, 2 );
 	}
 
@@ -66,7 +66,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	
 	
  /*
-  *	2.
+  *	Plugin Load
   */
  function gourl_wc_gateway_load() 
  {
@@ -91,15 +91,24 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	}
 
 	
-	// Number of Decimals for Bitcoin
-	$currency = get_woocommerce_currency();
-	if (!in_array(wc_get_price_decimals(), array(3,4)) && strpos($currency, "BTC") && strlen($currency) == 6 && 
-		in_array(substr($currency, 0, 3), array_keys(json_decode(GOURLWC_RATES, true)))) update_option( 'woocommerce_price_num_decimals', 4 );
+	
+	/*
+	 * 2. You set product prices in USD/EUR/etc in the admin panel, and display those prices in Bitcoins (BTC) for front-end users
+	*/
+	function gourl_wc_fiat_btc( $currency = "" )
+	{
+		if (!$currency && function_exists('get_woocommerce_currency')) $currency = get_woocommerce_currency(); 
+		if (strpos($currency, "BTC") && strlen($currency) == 6 && in_array(substr($currency, 0, 3), array_keys(json_decode(GOURLWC_RATES, true))))
+			return true;
+		else
+			return false;
+	}
+	
+	if (gourl_wc_fiat_btc()) update_option( 'woocommerce_price_num_decimals', 4 );
 
 	
 	
 
-	
 	/*
 	 *	3.
 	 */
@@ -148,7 +157,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	}
 	
 	
-
 	
 	/*
 	 *	6.
@@ -184,7 +192,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	{
 		global $gourl, $post;
 		
-		if (strpos($currency, "BTC") && strlen($currency) == 6 && in_array(substr($currency, 0, 3), array_keys(json_decode(GOURLWC_RATES, true))))
+		if (gourl_wc_fiat_btc($currency))
 		{
 			if (current_user_can('manage_options') && ((isset($post->post_type) && $post->post_type == "product") || (isset($_GET["page"]) && $_GET["page"] == "wc-settings")))
 			{
@@ -293,8 +301,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		global $woocommerce;
 		static $emultiplier = 0;
 		
-		$currency = get_woocommerce_currency();
-		if (strpos($currency, "BTC") && strlen($currency) == 6 && in_array(substr($currency, 0, 3), array_keys(json_decode(GOURLWC_RATES, true)))) 
+		if (gourl_wc_fiat_btc()) 
 		{
 			if (!$emultiplier)
 			{
@@ -303,7 +310,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 				if (!$emultiplier || !is_numeric($emultiplier) || $emultiplier < 0.01) $emultiplier = 1;
 			}
 			
-			$live = gourl_wc_bitcoin_live_price(substr($currency, 0, 3));
+			$live = gourl_wc_bitcoin_live_price(substr(get_woocommerce_currency(), 0, 3));
 			
 			if ($live > 0) $price = $price / $live * $emultiplier;
 			else  $price = 9999;
@@ -590,14 +597,13 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 			$plugin			= "gourlwoocommerce";
 			$amount 		= $order->order_total; 	
 			$currency 		= $order->order_currency; 
+			if (gourl_wc_fiat_btc($currency)) $currency = "BTC";
 			$orderID		= "order" . $order->id;
 			$userID			= $order->user_id;
 			$period			= "NOEXPIRY";
 			$language		= $this->deflang;
 			$coin 			= $this->coin_names[$this->defcoin];
 			$affiliate_key 	= GOURLWC_AFFILIATE_KEY;
-			
-			if (strpos($currency, "BTC") && strlen($currency) == 6 && in_array(substr($currency, 0, 3), array_keys(json_decode(GOURLWC_RATES, true)))) $currency = "BTC";
 			$crypto			= array_key_exists($currency, $this->coin_names);
 			
 			if (!$userID) $userID = "guest"; // allow guests to make checkout (payments)
@@ -804,6 +810,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load() 
+ // end gourl_wc_gateway_load()   
  
 }

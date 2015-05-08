@@ -6,7 +6,7 @@ Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, paycoin, reddcoin, speedcoin, dash, potcoin, feathercoin, vertcoin, vericoin, peercoin, bitcoin
 Requires at least: 3.5
 Tested up to: 4.2
-Stable Tag: 1.1.2
+Stable Tag: 1.1.3
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,11 +91,15 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+= 1.1.3 =
+Minor updates
+
 = 1.1.2 =
 Three GoUrl Payment Integration Options for WooCommerce: 
-1) Standard Way - Product prices in USD/EUR/GBP/etc and use GoUrl Bitcoin/Altcoin Gateway together with paypal/credit card gateways. 
-2) You set product prices in USD/EUR/etc in the admin panel, and display those prices in Bitcoins for front-end users. 
-3) You set product prices in Bitcoin/Altcoin directly.
+
+* Standard Way - Product prices in USD/EUR/GBP/etc and use GoUrl Bitcoin/Altcoin Gateway together with paypal/credit card gateways. 
+* You set product prices in USD/EUR/etc in the admin panel, and display those prices in Bitcoins for front-end users. 
+* You set product prices in Bitcoin/Altcoin directly.
 
 = 1.1.0 =
 Added Peercoin 
@@ -118,4 +122,4 @@ Minor updates
 
 = 1.0.0 =
 Initial Release
-     
+  
