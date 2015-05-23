@@ -6,7 +6,7 @@ Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, paycoin, reddcoin, speedcoin, dash, potcoin, feathercoin, vertcoin, vericoin, peercoin, bitcoin
 Requires at least: 3.5
 Tested up to: 4.2
-Stable Tag: 1.1.3
+Stable Tag: 1.1.4
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,7 @@ Wordpress Plugin for WooCommerce Features -
 * Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert cryptocurrency to USD/EUR/etc
 * Live Exchange Rates with additional Exchange Rate Multiplier (i.e. 1.05 - will add extra 5% to the total price in bitcoins)
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
+* If you intend plugin to be used in a language other than English, see the [Language Translations page](https://gourl.io/languages.html)
 * [Free Tech Support](https://gourl.io/view/contact/Contact_Us.html) for You
 
 .
@@ -91,8 +92,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
-= 1.1.3 =
-Minor updates
+= 1.1.4 =
+* Localisation - You can easy change/localize any text in plugin
+* Add Bulgarian translation (Thanks to Velcho)
 
 = 1.1.2 =
 Three GoUrl Payment Integration Options for WooCommerce: 
@@ -102,8 +104,8 @@ Three GoUrl Payment Integration Options for WooCommerce:
 * You set product prices in Bitcoin/Altcoin directly.
 
 = 1.1.0 =
-Added Peercoin 
-Spanish payment box localisation
+* Add Peercoin [PPC] cryptocurrency
+* Add Spanish Payment Box translation (Thanks to Alberto)
 
 = 1.0.5 =
 Customize payment box style
@@ -112,14 +114,11 @@ Customize payment box style
 Customize payment logo
 
 = 1.0.3 =
-Support new coin - Paycoin XPY
-
-= 1.0.2 =
-Minor updates
+Add Paycoin [XPY] cryptocurrency
 
 = 1.0.1 =
 Minor updates
 
 = 1.0.0 =
 Initial Release
-  
+              
