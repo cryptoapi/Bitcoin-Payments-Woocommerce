@@ -3,10 +3,10 @@ Contributors: gourl, GoUrl.io
 Plugin Name: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io 
-Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, paycoin, reddcoin, speedcoin, dash, potcoin, feathercoin, vertcoin, vericoin, peercoin, bitcoin
+Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, darkcoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin, paycoin, monetaryunit, peercoin
 Requires at least: 3.5
-Tested up to: 4.2
-Stable Tag: 1.1.4
+Tested up to: 4.3
+Stable Tag: 1.1.5
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ Wordpress Plugin for WooCommerce Features -
 
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
-* Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin payments in WooCommerce
+* Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin, MonetaryUnit payments in WooCommerce
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
 * No Chargebacks, Global, Secure. All in automatic mode.
 * Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert cryptocurrency to USD/EUR/etc
@@ -92,6 +92,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+= 1.1.5 =
+Add MonetaryUnit [MUE] cryptocurrency
+
 = 1.1.4 =
 * Localisation - You can easy change/localize any text in plugin
 * Add Bulgarian translation (Thanks to Velcho)
@@ -121,4 +124,4 @@ Minor updates
 
 = 1.0.0 =
 Initial Release
-              
+      

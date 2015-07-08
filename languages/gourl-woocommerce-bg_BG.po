@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway "
 "Addon\n"
-"POT-Creation-Date: 2015-05-23 12:00-0000\n"
-"PO-Revision-Date: 2015-05-23 12:00-0000\n"
+"POT-Creation-Date: 2015-07-08 16:21-0000\n"
+"PO-Revision-Date: 2015-07-08 16:22-0000\n"
 "Last-Translator: Velcho Velchev <velcho@rezko.net>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -69,11 +69,11 @@ msgstr "Приставката е от Github - 100% свободен отвор
 #, php-format
 msgid ""
 "Your GoUrl Bitcoin Gateway <a href='%s'>Main Plugin</a> version is too old. "
-"Requires 1.3.1 or higher version. Please <a href='%s'>update</a> to latest "
+"Requires 1.3.3 or higher version. Please <a href='%s'>update</a> to latest "
 "version."
 msgstr ""
 "Вашата GoUrl Биткойн шлюз <a href='%s'>приставка</a> е твърде стара. Изисква "
-"се v1.3.1 или по-висока. Моля <a href='%s'>обновете</a>до последната версия."
+"се v1.3.3 или по-висока. Моля <a href='%s'>обновете</a>до последната версия."
 
 #: gourl-woocommerce.php:388 gourl-woocommerce.php:411
 #: gourl-woocommerce.php:604 gourl-woocommerce.php:609

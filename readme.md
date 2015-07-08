@@ -2,19 +2,19 @@
 GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 -----------------------------------------------------------
 
-Version 1.1.4
+Version 1.1.5
 
 **Wordpress Plugin provides a Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher.**
 
-Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin on Website Online
+Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin, MonetaryUnit on Website Online
 
 * Author URI: [https://gourl.io](https://gourl.io)
 * Plugin Page: [https://gourl.io/bitcoin-payments-woocommerce.html](https://gourl.io/bitcoin-payments-woocommerce.html)
 * Wordpress Page: [https://wordpress.org/plugins/gourl-woocommerce-bitcoin-altcoin-payment-gateway-addon](https://wordpress.org/plugins/gourl-woocommerce-bitcoin-altcoin-payment-gateway-addon/)
 * Screenshots: [https://gourl.io/bitcoin-payments-woocommerce.html#screenshot](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
 * Requires at least: Wordpress 3.5 and WooCommerce 2.1
-* Tested up to: Wordpress 4.2 and WooCommerce 2.2 
-* Stable Tag: 1.1.4
+* Tested up to: Wordpress 4.3 and WooCommerce 2.2 
+* Stable Tag: 1.1.5
 * License: GNU Version 2 or Any Later Version
 
 
@@ -28,6 +28,7 @@ Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin,
 * Live Exchange Rates with additional Exchange Rate Multiplier (i.e. 1.05 - will add extra 5% to the total price in bitcoins).
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * No Chargebacks, Global, Secure. All in automatic mode.
+* If you intend plugin to be used in a language other than English, see the [Language Translations page](https://gourl.io/languages.html)
 * [Free Tech Support](https://gourl.io/view/contact/Contact_Us.html) for You
 
 .
@@ -82,4 +83,4 @@ Plugin Options
   
 # ![WooCommerce-Plugin-Options](https://gourl.io/images/woocommerce/screenshot-1.png)
  
-    
+ 
