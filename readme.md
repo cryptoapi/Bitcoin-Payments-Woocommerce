@@ -13,7 +13,7 @@ Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin,
 * Wordpress Page: [https://wordpress.org/plugins/gourl-woocommerce-bitcoin-altcoin-payment-gateway-addon](https://wordpress.org/plugins/gourl-woocommerce-bitcoin-altcoin-payment-gateway-addon/)
 * Screenshots: [https://gourl.io/bitcoin-payments-woocommerce.html#screenshot](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
 * Requires at least: Wordpress 3.5 and WooCommerce 2.1
-* Tested up to: Wordpress 4.3 and WooCommerce 2.2 
+* Tested up to: Wordpress 4.5 and WooCommerce 2.2 
 * Stable Tag: 1.1.5
 * License: GNU Version 2 or Any Later Version
 

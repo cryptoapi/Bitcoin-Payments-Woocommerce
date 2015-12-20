@@ -5,7 +5,7 @@ Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io 
 Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, darkcoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin, paycoin, monetaryunit, peercoin
 Requires at least: 3.5
-Tested up to: 4.3
+Tested up to: 4.5
 Stable Tag: 1.1.5
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
