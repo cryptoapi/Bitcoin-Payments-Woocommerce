@@ -3,7 +3,7 @@
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
 Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoin Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Cryptsy Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin, MonetaryUnit payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.1.5
+Version: 			1.1.6
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 License: 			GPLv2
@@ -19,7 +19,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	
 
 	DEFINE('GOURLWC', 'gourl-woocommerce');
-	DEFINE('GOURLWC_RATES', json_encode(array("USD" => "US Dollar", "EUR" => "Euro", "GBP" => "British Pound", "AUD" => "Australian Dollar", "BRL" => "Brazilian Real", "CAD" => "Canadian Dollar", "CHF" => "Swiss Franc", "CLP" => "Chilean Peso", "CNY" => "Chinese Yuan Renminbi", "DKK" => "Danish Krone", "HKD"=> "Hong Kong Dollar", "ISK" => "Icelandic Krona", "JPY" => "Japanese Yen", "KRW" => "South Korean Won", "NZD" => "New Zealand Dollar", "PLN" => "Polish Zloty", "RUB" => "Russian Ruble", "SEK" => "Swedish Krona", "SGD" => "Singapore Dollar", "TWD" => "Taiwan New Dollar")));
+	DEFINE('GOURLWC_RATES', json_encode(array("USD" => "US Dollar", "EUR" => "Euro", "GBP" => "British Pound", "AUD" => "Australian Dollar", "BRL" => "Brazilian Real", "CAD" => "Canadian Dollar", "CHF" => "Swiss Franc", "CLP" => "Chilean Peso", "CNY" => "Chinese Yuan Renminbi", "DKK" => "Danish Krone", "HKD"=> "Hong Kong Dollar", "IRR" => "Iranian Rial", "ISK" => "Icelandic Krona", "JPY" => "Japanese Yen", "KRW" => "South Korean Won", "NZD" => "New Zealand Dollar", "PLN" => "Polish Zloty", "RUB" => "Russian Ruble", "SEK" => "Swedish Krona", "SGD" => "Singapore Dollar", "TWD" => "Taiwan New Dollar")));
 	
 	
 	
@@ -177,6 +177,8 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	{
 		global $gourl; 
 		
+		$currencies['IRR'] = __( 'Iranian Rial', GOURLWC );
+		
 		if (class_exists('gourlclass') && defined('GOURL') && defined('GOURL_ADMIN') && is_object($gourl))
 		{
 			$arr = $gourl->coin_names(); 
@@ -223,7 +225,8 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		}
 		
 		if ($currency_symbol == "BTC") $currency_symbol = "&#3647;";
-	
+		if ($currency == "IRR") $currency_symbol = "&#65020;";
+		
 		return $currency_symbol;
 	}	
 
@@ -838,6 +841,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load()     
+ // end gourl_wc_gateway_load()       
  
 }
