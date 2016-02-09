@@ -3,7 +3,7 @@
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
 Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoin Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Cryptsy Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin, MonetaryUnit payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.1.6
+Version: 			1.1.7
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 License: 			GPLv2
@@ -240,13 +240,15 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	{
 		$price 	= 0;
 		$min 	= 50;
-		$key 	= GOURL.'_exchange_BTC'.$currency;
+		$key 	= GOURL.'_exchange_BTC_'.$currency;
 		
 		if (!in_array($currency, array_keys(json_decode(GOURLWC_RATES, true)))) return 0;
 		
-		// update one time per 20 min
+
+		// update exchange rate one time per 30 min
 		$arr2 = get_option($key);
-		if ($arr2 && isset($arr2["price"]) && ($arr2["time"] + ($arr2["price"]>0?20:1)*60) > strtotime("now")) return $arr2["price"]; 
+		if ($arr2 && isset($arr2["price"]) && $arr2["price"] > 0 && isset($arr2["time"]) && ($arr2["time"] + 0.5*60*60) > strtotime("now")) return $arr2["price"];
+		
 		
 	
 		// a. bitstamp.net
@@ -275,14 +277,22 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		}
 
 		
-		// save
-		if ($price > 0 || !$arr2 || ($arr2["time"] + 3*60*60) < strtotime("now"))
+		
+		// save exchange rate on next 30min
+		if ($price > 0)
 		{
-			$arr = array("price" => $price, "time" => strtotime("now"));
-			update_option($key, $arr);
+		    $arr2 = array("price" => $price, "time" => strtotime("now"));
+		    update_option($key, $arr2);
+		     
+		    return $price;
+		}
+		elseif ($arr2 && isset($arr2["price"]) && $arr2["price"] > 0 && isset($arr2["time"]) && ($arr2["time"] + 4*60*60) > strtotime("now"))
+		{
+		    return $arr2["price"];
 		}
 		
-		return $price;
+		
+		return 0;
 	}
 			
 	
@@ -841,6 +851,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load()       
+ // end gourl_wc_gateway_load() 
  
 }

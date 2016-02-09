@@ -6,7 +6,7 @@ Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, darkcoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin, paycoin, monetaryunit, peercoin
 Requires at least: 3.5
 Tested up to: 4.5
-Stable Tag: 1.1.6
+Stable Tag: 1.1.7
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,9 @@ Provides Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher. Accept 
 
 == Description ==
 
-See [Screenshots](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
+**[SEE INSTRUCTION](https://bitcointalk.org/index.php?topic=1043437.0) - START YOUR OWN FREE BITCOIN SHOP IN 10 MINUTES** - Bitcoin/Paypal Payments in WordPress/WooCommerce.
+
+[Screenshots](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
 
 Wordpress Plugin for WooCommerce Features -
 
@@ -92,6 +94,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+= 1.1.7 =
+Minor updates
+
 = 1.1.6 =
 * Added German and Persian Languages
 * Enables iranian Rials in WooCommerce
@@ -128,4 +133,3 @@ Minor updates
 
 = 1.0.0 =
 Initial Release   
-      
