@@ -3,10 +3,10 @@ Contributors: gourl, GoUrl.io
 Plugin Name: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io 
-Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, darkcoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin, paycoin, monetaryunit, peercoin
+Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, darkcoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin, paycoin, monetaryunit, swiscoin, peercoin
 Requires at least: 3.5
-Tested up to: 4.5
-Stable Tag: 1.1.7
+Tested up to: 4.8
+Stable Tag: 1.1.9
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ Wordpress Plugin for WooCommerce Features -
 
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
-* Accept Bitcoin, Litecoin, Paycoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Vericoin, Peercoin, MonetaryUnit payments in WooCommerce
+* Accept Bitcoin, Litecoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Paycoin, Vertcoin, Vericoin, Peercoin, MonetaryUnit, Swiscoin payments in WooCommerce
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
 * No Chargebacks, Global, Secure. All in automatic mode.
 * Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert cryptocurrency to USD/EUR/etc
@@ -94,11 +94,22 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+= 1.1.9 =
+* Added Swiscoin (coins voting https://gourl.io/coin-voting.html )
+
+= 1.1.8 =
+* Added Japanese Language (Thanks to Takiko)
+* Added Indonesian Language (Thanks to Tejo)
+* Added Polish Language (Thanks to Kacper)
+
 = 1.1.7 =
-Minor updates
+* Added Korean Language (Thanks to Arthur)
+* Added Portuguese Language (Thanks to Miguel)
+* Minor updates
 
 = 1.1.6 =
-* Added German and Persian Languages
+* Added German Language (Thanks to Sebastian, Julius)
+* Added Persian Language (Thanks to Kaveh, Ali-Mehdi)
 * Enables iranian Rials in WooCommerce
 
 = 1.1.5 =
@@ -132,4 +143,4 @@ Add Paycoin [XPY] cryptocurrency
 Minor updates
 
 = 1.0.0 =
-Initial Release   
+Initial Release        
