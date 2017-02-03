@@ -6,7 +6,7 @@ Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, darkcoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin, paycoin, monetaryunit, swiscoin, peercoin
 Requires at least: 3.5
 Tested up to: 4.8
-Stable Tag: 1.1.9
+Stable Tag: 1.1.10
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 
 == Changelog == 
+
+= 1.1.10 =
+* Added Italian Language (Thanks to Lorenzo)
 
 = 1.1.9 =
 * Added Swiscoin (coins voting https://gourl.io/coin-voting.html )
