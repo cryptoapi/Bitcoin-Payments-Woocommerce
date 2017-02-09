@@ -3,7 +3,7 @@
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
 Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoin Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Poloniex Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, Litecoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Paycoin, Vertcoin, Vericoin, Peercoin, MonetaryUnit, Swiscoin payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.1.10
+Version: 			1.1.11
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 License: 			GPLv2
@@ -100,6 +100,10 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		add_filter( 'woocommerce_get_sale_price', 		'gourl_wc_btc_price', 10, 2 );
 		add_filter( 'woocommerce_get_regular_price', 	'gourl_wc_btc_price', 10, 2 );
 		add_filter( 'woocommerce_get_price', 			'gourl_wc_btc_price', 10, 2 );
+		
+		add_filter('woocommerce_variation_prices_sale_price',     'gourl_wc_btc_price', 10, 2 );
+		add_filter('woocommerce_variation_prices_regular_price',  'gourl_wc_btc_price', 10, 2 );
+		add_filter('woocommerce_variation_prices_price',          'gourl_wc_btc_price', 10, 2 );		
 	}
 
 	
@@ -239,7 +243,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	function gourl_wc_bitcoin_live_price ($currency)
 	{
 		$price 	= 0;
-		$min 	= 50;
+		$min 	= 100;
 		$key 	= GOURL.'_exchange_BTC_'.$currency;
 		
 		if (!in_array($currency, array_keys(json_decode(GOURLWC_RATES, true)))) return 0;
@@ -307,7 +311,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		curl_setopt ($ch, CURLOPT_URL, $url);
 		curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)");
+		curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko");
 		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 10);
 		curl_setopt ($ch, CURLOPT_TIMEOUT, 10);
 		$data 		= curl_exec($ch);
