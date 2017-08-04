@@ -3,14 +3,14 @@ Contributors: gourl, GoUrl.io
 Plugin Name: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io 
-Tags: woocommerce, bitcoin, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, darkcoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, vericoin, potcoin, paycoin, monetaryunit, swiscoin, peercoin
+Tags: woocommerce, bitcoin, bitcoincash, bitcoin cash, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, potcoin, monetaryunit, peercoin
 Requires at least: 3.5
-Tested up to: 4.8
-Stable Tag: 1.1.11
+Tested up to: 4.9
+Stable Tag: 1.1.12
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Provides Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher. Accept Bitcoin, Litecoin, Dogecoin, Paycoin, etc Payments on Your Website
+Provides Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher. Accept Bitcoin, Bitcoin Cash, Litecoin, Dogecoin, Dash, etc Payments on Your Website
 
 
 
@@ -24,7 +24,7 @@ Wordpress Plugin for WooCommerce Features -
 
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
-* Accept Bitcoin, Litecoin, Dogecoin, Dash, Speedcoin, Reddcoin, Potcoin, Feathercoin, Paycoin, Vertcoin, Vericoin, Peercoin, MonetaryUnit, Swiscoin payments in WooCommerce
+* Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit payments in WooCommerce
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
 * No Chargebacks, Global, Secure. All in automatic mode.
 * Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert cryptocurrency to USD/EUR/etc
@@ -94,14 +94,14 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+= 1.1.12 =
+* Added Bitcoin Cash (BCH / BCC)
+
 = 1.1.11 =
 Minor updates
 
 = 1.1.10 =
 * Added Italian Language (Thanks to Lorenzo)
-
-= 1.1.9 =
-* Added Swiscoin (coins voting https://gourl.io/coin-voting.html )
 
 = 1.1.8 =
 * Added Japanese Language (Thanks to Takiko)
@@ -142,11 +142,8 @@ Customize payment box style
 = 1.0.4 =
 Customize payment logo
 
-= 1.0.3 =
-Add Paycoin [XPY] cryptocurrency
-
 = 1.0.1 =
 Minor updates
 
 = 1.0.0 =
-Initial Release    
+Initial Release        
