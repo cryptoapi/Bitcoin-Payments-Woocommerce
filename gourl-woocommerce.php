@@ -136,7 +136,8 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	function gourl_wc_currencies ( $currencies )
 	{
 	    $currencies['IRR'] = __( 'Iranian Rial', GOURLWC );
-	
+	    $currencies['IRT'] = __( 'Iranian Toman', GOURLWC );
+	     
 	    if (class_exists('gourlclass') && defined('GOURL') && defined('GOURL_ADMIN'))
 	    {
 	        $arr = gourlclass::coin_names();
@@ -236,7 +237,8 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	
 	    if ($currency_symbol == "BTC") $currency_symbol = "&#3647;";
 	    if ($currency == "IRR") $currency_symbol = "&#65020;";
-	
+	    if ($currency == "IRT") $currency_symbol = "IRT";
+	     
 	
 	    return $currency_symbol;
 	}
@@ -1210,6 +1212,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load()    
+ // end gourl_wc_gateway_load() 
 
 }
