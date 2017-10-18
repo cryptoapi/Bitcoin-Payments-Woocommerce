@@ -237,7 +237,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	
 	    if ($currency_symbol == "BTC") $currency_symbol = "&#3647;";
 	    if ($currency == "IRR") $currency_symbol = "&#65020;";
-	    if ($currency == "IRT") $currency_symbol = "IRT";
+	    if ($currency == "IRT") $currency_symbol = "&#x62A;&#x648;&#x645;&#x627;&#x646;";
 	     
 	
 	    return $currency_symbol;
@@ -1191,7 +1191,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	 *  
 	 *  Payment_details example - https://gourl.io/images/plugin2.png
 	 *  Read more - https://gourl.io/affiliates.html#wordpress
-	 */ 
+	 */
 	function gourlwoocommerce_gourlcallback ($user_id, $order_id, $payment_details, $box_status)
 	{
 		global $woocommerce;
@@ -1212,6 +1212,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load() 
+ // end gourl_wc_gateway_load()
 
 }
