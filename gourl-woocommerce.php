@@ -954,15 +954,18 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		else 
 		{ 	
 		    
-			$plugin			= "gourlwoocommerce";
-			$amount 		= $order_total; 	
-			$currency 		= (gourl_wc_currency_type($currency)["2way"]) ? gourl_wc_currency_type($currency)["user"] : $order_currency; 
-			$period			= "NOEXPIRY";
-			$language		= $this->deflang;
-			$coin 			= $this->coin_names[$this->defcoin];
-			$affiliate_key 	= GOURLWC_AFFILIATE_KEY;
-			$crypto			= array_key_exists($currency, $this->coin_names);
-
+			$plugin          = "gourlwoocommerce";
+			$amount          = $order_total; 	
+			$currency        = (gourl_wc_currency_type($currency)["2way"]) ? gourl_wc_currency_type($currency)["user"] : $order_currency; 
+			$period          = "NOEXPIRY";
+			$language        = $this->deflang;
+			$coin            = $this->coin_names[$this->defcoin];
+			$crypto          = array_key_exists($currency, $this->coin_names);
+			
+			// you can place below your affiliate key, i.e. $affiliate_key ='DEV.....';
+			// more info - https://gourl.io/affiliates.html
+			$affiliate_key   = GOURLWC_AFFILIATE_KEY;
+					
 			// try to use original readonly order values
 			$original_orderID     = get_post_meta( $order_id, '_gourl_worder_orderid', true );
 			$original_userID      = get_post_meta( $order_id, '_gourl_worder_userid', 	true );
@@ -1212,6 +1215,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load()
+ // end gourl_wc_gateway_load()   
 
 }
