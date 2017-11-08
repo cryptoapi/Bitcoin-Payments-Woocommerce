@@ -6,7 +6,7 @@ Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, bitcoincash, bitcoin cash, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, potcoin, monetaryunit, peercoin
 Requires at least: 3.5
 Tested up to: 4.9
-Stable Tag: 1.2.0
+Stable Tag: 1.2.1
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 
 == Changelog == 
+
+= 1.2.1 =
+Minor updates
 
 = 1.2.0 =
 Fully Compatible with WooCommerce 3.x+ 
