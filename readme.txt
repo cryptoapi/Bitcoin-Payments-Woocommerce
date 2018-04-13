@@ -6,7 +6,7 @@ Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, bitcoincash, bitcoin cash, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, white label, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, potcoin, monetaryunit, peercoin
 Requires at least: 3.5
 Tested up to: 4.9
-Stable Tag: 1.2.2
+Stable Tag: 1.2.3
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -24,9 +24,12 @@ Wordpress Plugin for WooCommerce Features -
 
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
-* White Label Solution. Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit payments in WooCommerce
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
 * No Chargebacks, Global, Secure. All in automatic mode.
+* Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit payments in WooCommerce
+* White Label Solution with Your Logo ([see Demo](https://gourl.io/lib/examples/box_only.php)) - user browser receive payment data from your server/website only; your server receive data from our server. 
+* Support WooCommerce Subscriptions (subscriptions plugin on [Github](https://github.com/wp-premium/woocommerce-subscriptions))
+* Display additional crypto price with fiat price on the WooCommerce product page ([screenshot](https://gourl.io/images/woocommerce/screenshot-8.png))
 * Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert cryptocurrency to USD/EUR/etc
 * Live Exchange Rates with additional Exchange Rate Multiplier (i.e. 1.05 - will add extra 5% to the total price in bitcoins)
 * Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
@@ -94,6 +97,10 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+= 1.2.3 =
+Woocommerce Subscriptions support
+Display crypto price with fiat price on the WooCommerce product pages
+
 = 1.2.2 =
 Added Mobile Friendly Payment Box
 
@@ -156,3 +163,4 @@ Minor updates
 
 = 1.0.0 =
 Initial Release       
+   
