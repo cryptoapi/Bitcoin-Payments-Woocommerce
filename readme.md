@@ -19,19 +19,19 @@ White Label Solution. Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Spe
 
 
 
-**Wordpress Plugin for WooCommerce Features -**
+**Bitcoin/Altcoin Plugin for WooCommerce Features -**
 
 * 100% Free Open Source Plugin on [Github.com](https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce)
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
 * No Chargebacks, Global, Secure. All in automatic mode.
 * Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit payments in WooCommerce
+* Mobile Friendly customizable Payment Box; Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * White Label Solution with Your Logo ([see Demo](https://gourl.io/lib/examples/box_only.php)) - user browser receive payment data from your server/website only; your server receive data from our server. 
 * Support WooCommerce Subscriptions (subscriptions plugin on [Github](https://github.com/wp-premium/woocommerce-subscriptions))
 * Display additional crypto price with fiat price on the WooCommerce product page ([screenshot](https://gourl.io/images/woocommerce/screenshot-8.png))
 * Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert cryptocurrency to USD/EUR/etc
 * Live Exchange Rates with additional Exchange Rate Multiplier (i.e. 1.05 - will add extra 5% to the total price in bitcoins)
-* Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * If you intend plugin to be used in a language other than English, see the [Language Translations page](https://gourl.io/languages.html)
 * [Free Tech Support](https://gourl.io/view/contact/Contact_Us.html) for You
 
@@ -110,4 +110,4 @@ Payment Box Styles
 
 
 # ![WooCommerce-Payment-Box-3](https://gourl.io/images/woocommerce/screenshot-11.png)
-  
+    
