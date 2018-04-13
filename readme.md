@@ -17,6 +17,8 @@ White Label Solution. Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Spe
 * Stable Tag: 1.2.3
 * License: GNU Version 2 or Any Later Version
 
+.
+
 
 
 **Bitcoin/Altcoin Plugin for WooCommerce Features -**
