@@ -54,17 +54,17 @@ Screenshots
 ----------------
 
 
-# ![WooCommerce-Order-Page](https://gourl.io/images/woocommerce/screenshot-2.png)
+# ![WooCommerce-Order-Page](https://gourl.io/images/woocommerce/screenshot-2.png?1)
 
 
 Awaiting Payment
 ----------------
-# ![WooCommerce-Payment-Page](https://gourl.io/images/woocommerce/screenshot-3.png)
+# ![WooCommerce-Payment-Page](https://gourl.io/images/woocommerce/screenshot-3.png?1)
 
 
 Payment Received
 ----------------
-# ![WooCommerce-Payment-Received](https://gourl.io/images/woocommerce/screenshot-4.png)
+# ![WooCommerce-Payment-Received](https://gourl.io/images/woocommerce/screenshot-4.png?1)
 
 
 Installation Instruction
@@ -81,7 +81,7 @@ Installation Instruction
 WooCommerce Edit Order Page
 ----------------
    
-# ![WooCommerce-Edit-Order](https://gourl.io/images/woocommerce/screenshot-5.png)
+# ![WooCommerce-Edit-Order](https://gourl.io/images/woocommerce/screenshot-5.png?1)
 
 
 
@@ -89,7 +89,7 @@ Plugin Options
 ----------------
 
   
-# ![WooCommerce-Plugin-Options](https://gourl.io/images/woocommerce/screenshot-1.png)
+# ![WooCommerce-Plugin-Options](https://gourl.io/images/woocommerce/screenshot-1.png?1)
       
 
 
@@ -97,7 +97,7 @@ Display bitcoin/altcoin price with fiat price
 ----------------
 
   
-# ![WooCommerce-Display-Bitcoin-Price](https://gourl.io/images/woocommerce/screenshot-8.png)
+# ![WooCommerce-Display-Bitcoin-Price](https://gourl.io/images/woocommerce/screenshot-8.png?1)
       
 
 
@@ -105,11 +105,11 @@ Payment Box Styles
 ----------------
 
   
-# ![WooCommerce-Payment-Box-1](https://gourl.io/images/woocommerce/screenshot-9.png)
+# ![WooCommerce-Payment-Box-1](https://gourl.io/images/woocommerce/screenshot-9.png?1)
       
 
-# ![WooCommerce-Payment-Box-2](https://gourl.io/images/woocommerce/screenshot-10.png)
+# ![WooCommerce-Payment-Box-2](https://gourl.io/images/woocommerce/screenshot-10.png?1)
 
 
-# ![WooCommerce-Payment-Box-3](https://gourl.io/images/woocommerce/screenshot-11.png)
+# ![WooCommerce-Payment-Box-3](https://gourl.io/images/woocommerce/screenshot-11.png?1)  
     
