@@ -2,7 +2,7 @@
 GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 -----------------------------------------------------------
 
-Version 1.2.3
+Version 1.2.4
 
 **Wordpress Plugin provides a Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher.**
 
@@ -14,7 +14,7 @@ White Label Solution. Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Spe
 * Screenshots: [https://gourl.io/bitcoin-payments-woocommerce.html#screenshot](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
 * Requires at least: Wordpress 3.5 and WooCommerce 2.1
 * Tested up to: Wordpress 4.9 and WooCommerce 3.4   
-* Stable Tag: 1.2.3
+* Stable Tag: 1.2.4
 * License: GNU Version 2 or Any Later Version
 
 .
@@ -54,17 +54,17 @@ Screenshots
 ----------------
 
 
-# ![WooCommerce-Order-Page](https://gourl.io/images/woocommerce/screenshot-2.png?1)
+# ![WooCommerce-Order-Page](https://gourl.io/images/woocommerce/screenshot-2.png)
 
 
 Awaiting Payment
 ----------------
-# ![WooCommerce-Payment-Page](https://gourl.io/images/woocommerce/screenshot-3.png?1)
+# ![WooCommerce-Payment-Page](https://gourl.io/images/woocommerce/screenshot-3.png)
 
 
 Payment Received
 ----------------
-# ![WooCommerce-Payment-Received](https://gourl.io/images/woocommerce/screenshot-4.png?1)
+# ![WooCommerce-Payment-Received](https://gourl.io/images/woocommerce/screenshot-4.png)
 
 
 Installation Instruction
@@ -81,7 +81,7 @@ Installation Instruction
 WooCommerce Edit Order Page
 ----------------
    
-# ![WooCommerce-Edit-Order](https://gourl.io/images/woocommerce/screenshot-5.png?1)
+# ![WooCommerce-Edit-Order](https://gourl.io/images/woocommerce/screenshot-5.png)
 
 
 
@@ -89,7 +89,7 @@ Plugin Options
 ----------------
 
   
-# ![WooCommerce-Plugin-Options](https://gourl.io/images/woocommerce/screenshot-1.png?1)
+# ![WooCommerce-Plugin-Options](https://gourl.io/images/woocommerce/screenshot-1.png)
       
 
 
@@ -97,7 +97,7 @@ Display bitcoin/altcoin price with fiat price
 ----------------
 
   
-# ![WooCommerce-Display-Bitcoin-Price](https://gourl.io/images/woocommerce/screenshot-8.png?1)
+# ![WooCommerce-Display-Bitcoin-Price](https://gourl.io/images/woocommerce/screenshot-8.png)
       
 
 
@@ -105,11 +105,11 @@ Payment Box Styles
 ----------------
 
   
-# ![WooCommerce-Payment-Box-1](https://gourl.io/images/woocommerce/screenshot-9.png?1)
+# ![WooCommerce-Payment-Box-1](https://gourl.io/images/woocommerce/screenshot-9.png)
       
 
-# ![WooCommerce-Payment-Box-2](https://gourl.io/images/woocommerce/screenshot-10.png?1)
+# ![WooCommerce-Payment-Box-2](https://gourl.io/images/woocommerce/screenshot-10.png)
 
 
-# ![WooCommerce-Payment-Box-3](https://gourl.io/images/woocommerce/screenshot-11.png?1)  
-    
+# ![WooCommerce-Payment-Box-3](https://gourl.io/images/woocommerce/screenshot-11.png)
+         

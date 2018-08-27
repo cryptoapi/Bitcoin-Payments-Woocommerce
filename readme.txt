@@ -6,7 +6,7 @@ Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, bitcoincash, bitcoin cash, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, white label, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, potcoin, monetaryunit, peercoin
 Requires at least: 3.5
 Tested up to: 4.9
-Stable Tag: 1.2.3
+Stable Tag: 1.2.4
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -97,6 +97,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+= 1.2.4 =
+Update live exchange rates websites
+
 = 1.2.3 =
 Woocommerce Subscriptions support
 Display crypto price with fiat price on the WooCommerce product pages
@@ -162,5 +165,5 @@ Customize payment logo
 Minor updates
 
 = 1.0.0 =
-Initial Release
+Initial Release   
    
