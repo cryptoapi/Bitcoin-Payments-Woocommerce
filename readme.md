@@ -2,19 +2,19 @@
 GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 -----------------------------------------------------------
 
-Version 1.2.4
+Version 1.2.5
 
 **Wordpress Plugin provides a Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher.**
 
-White Label Solution. Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit on Website Online
+White Label Solution. Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit on Website Online
 
 * Author URI: [https://gourl.io](https://gourl.io)
 * Plugin Page: [https://gourl.io/bitcoin-payments-woocommerce.html](https://gourl.io/bitcoin-payments-woocommerce.html)
 * Wordpress Page: [https://wordpress.org/plugins/gourl-woocommerce-bitcoin-altcoin-payment-gateway-addon](https://wordpress.org/plugins/gourl-woocommerce-bitcoin-altcoin-payment-gateway-addon/)
 * Screenshots: [https://gourl.io/bitcoin-payments-woocommerce.html#screenshot](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
 * Requires at least: Wordpress 3.5 and WooCommerce 2.1
-* Tested up to: Wordpress 4.9 and WooCommerce 3.4   
-* Stable Tag: 1.2.4
+* Tested up to: Wordpress 5.0 and WooCommerce 3.5
+* Stable Tag: 1.2.5
 * License: GNU Version 2 or Any Later Version
 
 .
@@ -27,7 +27,7 @@ White Label Solution. Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Spe
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
 * No Chargebacks, Global, Secure. All in automatic mode.
-* Accept Bitcoin, BitcoinCash, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit payments in WooCommerce
+* Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit payments in WooCommerce
 * Mobile Friendly customizable Payment Box; Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * White Label Solution with Your Logo ([see Demo](https://gourl.io/lib/examples/box_only.php)) - user browser receive payment data from your server/website only; your server receive data from our server. 
 * Support WooCommerce Subscriptions (subscriptions plugin on [Github](https://github.com/wp-premium/woocommerce-subscriptions))
@@ -112,4 +112,4 @@ Payment Box Styles
 
 
 # ![WooCommerce-Payment-Box-3](https://gourl.io/images/woocommerce/screenshot-11.png)
-         
+
