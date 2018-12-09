@@ -3,7 +3,7 @@
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon. White Label Solution
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
 Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoin Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Poloniex Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.2.6
+Version: 			1.2.7
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 WC requires at least: 	2.1.0
@@ -799,7 +799,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 
-	    	if (!is_numeric($this->logo) || !in_array($this->logo, array(0,1,2,3,4,5,6)))               $this->logo = 1;
+	    	if (!is_numeric($this->logo) || !in_array($this->logo, array(0,1,2,3,4,5,6,7,8,9,10)))      $this->logo = 1;
 	    	if (!$this->emultiplier || !is_numeric($this->emultiplier) || $this->emultiplier < 0.01)    $this->emultiplier = 1;
 	    	if (!is_numeric($this->iconwidth) || $this->iconwidth < 30 || $this->iconwidth > 250)       $this->iconwidth = 60;
 	    	if (!is_numeric($this->qrcodesize) || $this->qrcodesize < 0 || $this->qrcodesize > 500)     $this->qrcodesize = 200;
@@ -830,7 +830,11 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	    	$logos[3] = __( "3. Bitcoin Logo with text", GOURLWC );
 	    	$logos[4] = __( "4. Light Logo with text - Crypto Accepted", GOURLWC );
 	    	$logos[5] = __( "5. Dark Logo with text - Crypto Accepted", GOURLWC );
-	    	$logos[6] = __( "6. Crypto Icons", GOURLWC );
+	    	$logos[6] = __( "6. Crypto Icons (Bitcoin, Bitcoin Cash, Litecoin)", GOURLWC );
+	    	$logos[7] = __( "7. Crypto Icons (Bitcoin, Bitcoin Cash)", GOURLWC );
+	    	$logos[8] = __( "8. Bitcoin Cash Logo green", GOURLWC );
+	    	$logos[9] = __( "9. Bitcoin Cash Logo white", GOURLWC );
+	    	$logos[10] = __( "10. Bitcoin Cash Logo with text", GOURLWC );
 	    	
 	    	$this->form_fields = array(
                     'enabled'		=> array(
