@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway "
 "Addon\n"
-"POT-Creation-Date: 2018-11-23 01:49+0000\n"
-"PO-Revision-Date: 2018-11-23 01:49+0000\n"
+"POT-Creation-Date: 2019-02-20 16:43+0000\n"
+"PO-Revision-Date: 2019-02-20 16:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -77,7 +77,7 @@ msgstr ""
 msgid "View Payment Details"
 msgstr ""
 
-#: gourl-woocommerce.php:549 gourl-woocommerce.php:1054
+#: gourl-woocommerce.php:549 gourl-woocommerce.php:1058
 msgid "Guest"
 msgstr ""
 
@@ -164,15 +164,15 @@ msgstr ""
 #, php-format
 msgid ""
 "Your GoUrl Bitcoin Gateway <a href='%s'>Main Plugin</a> version is too old. "
-"Requires 1.4.15 or higher version. Please <a href='%s'>update</a> to latest "
+"Requires 1.4.17 or higher version. Please <a href='%s'>update</a> to latest "
 "version."
 msgstr ""
 
 #: gourl-woocommerce.php:682 gourl-woocommerce.php:705
-#: gourl-woocommerce.php:1090 gourl-woocommerce.php:1095
-#: gourl-woocommerce.php:1100 gourl-woocommerce.php:1105
-#: gourl-woocommerce.php:1136 gourl-woocommerce.php:1143
-#: gourl-woocommerce.php:1157
+#: gourl-woocommerce.php:1094 gourl-woocommerce.php:1099
+#: gourl-woocommerce.php:1104 gourl-woocommerce.php:1109
+#: gourl-woocommerce.php:1140 gourl-woocommerce.php:1147
+#: gourl-woocommerce.php:1163
 msgid "Information"
 msgstr ""
 
@@ -274,72 +274,88 @@ msgid "5. Dark Logo with text - Crypto Accepted"
 msgstr ""
 
 #: gourl-woocommerce.php:833
-msgid "6. Crypto Icons"
+msgid "6. Crypto Icons (Bitcoin, Bitcoin Cash, Litecoin)"
+msgstr ""
+
+#: gourl-woocommerce.php:834
+msgid "7. Crypto Icons (Bitcoin, Bitcoin Cash)"
+msgstr ""
+
+#: gourl-woocommerce.php:835
+msgid "8. Bitcoin Cash Logo green"
+msgstr ""
+
+#: gourl-woocommerce.php:836
+msgid "9. Bitcoin Cash Logo white"
 msgstr ""
 
 #: gourl-woocommerce.php:837
+msgid "10. Bitcoin Cash Logo with text"
+msgstr ""
+
+#: gourl-woocommerce.php:841
 msgid "Enable/Disable"
 msgstr ""
 
-#: gourl-woocommerce.php:840
+#: gourl-woocommerce.php:844
 #, php-format
 msgid ""
 "Enable Bitcoin/Altcoin Payments in WooCommerce with <a href='%s'>GoUrl "
 "Bitcoin Gateway</a>"
 msgstr ""
 
-#: gourl-woocommerce.php:843
+#: gourl-woocommerce.php:847
 msgid "Title"
 msgstr ""
 
-#: gourl-woocommerce.php:845
+#: gourl-woocommerce.php:849
 msgid "Bitcoin/Altcoin"
 msgstr ""
 
-#: gourl-woocommerce.php:846
+#: gourl-woocommerce.php:850
 msgid "Payment method title that the customer will see on your checkout"
 msgstr ""
 
-#: gourl-woocommerce.php:849
+#: gourl-woocommerce.php:853
 msgid "Description"
 msgstr ""
 
-#: gourl-woocommerce.php:851
+#: gourl-woocommerce.php:855
 #, php-format
 msgid "Secure, anonymous payment with virtual currency - %s"
 msgstr ""
 
-#: gourl-woocommerce.php:851
+#: gourl-woocommerce.php:855
 msgid "What is bitcoin?"
 msgstr ""
 
-#: gourl-woocommerce.php:852
+#: gourl-woocommerce.php:856
 msgid "Payment method description that the customer will see on your checkout"
 msgstr ""
 
-#: gourl-woocommerce.php:855
+#: gourl-woocommerce.php:859
 msgid "Two Logo (checkout and paymentbox)"
 msgstr ""
 
-#: gourl-woocommerce.php:859
+#: gourl-woocommerce.php:863
 #, php-format
 msgid ""
 "Payment method logo that the customer will see on your checkout. <a href=\"%s"
 "\">See logo examples &#187;</a>"
 msgstr ""
 
-#: gourl-woocommerce.php:859
+#: gourl-woocommerce.php:863
 #, php-format
 msgid ""
 "Your Company Logo for Cryptocurrency Payment Box you can <a href=\"%s"
 "\">setup here &#187;</a>"
 msgstr ""
 
-#: gourl-woocommerce.php:862
+#: gourl-woocommerce.php:866
 msgid "Exchange Rate Multiplier"
 msgstr ""
 
-#: gourl-woocommerce.php:865
+#: gourl-woocommerce.php:869
 msgid ""
 "The system uses the multiplier rate with today LIVE cryptocurrency exchange "
 "rates (which are updated every 30 minutes) when the transaction is "
@@ -349,11 +365,11 @@ msgid ""
 "bitcoin/altcoins. Default: 1.00 "
 msgstr ""
 
-#: gourl-woocommerce.php:868
+#: gourl-woocommerce.php:872
 msgid "Advanced options"
 msgstr ""
 
-#: gourl-woocommerce.php:870
+#: gourl-woocommerce.php:874
 #, php-format
 msgid ""
 "Your shop can display product prices in Bitcoin/BCH/BSV/DASH/LTC/DOGE also."
@@ -361,15 +377,15 @@ msgid ""
 "see Live Prices in Bitcoin/Altcoin'</a>"
 msgstr ""
 
-#: gourl-woocommerce.php:870
+#: gourl-woocommerce.php:874
 msgid "see screenshot"
 msgstr ""
 
-#: gourl-woocommerce.php:873
+#: gourl-woocommerce.php:877
 msgid "Order Status - Cryptocoin Payment Received"
 msgstr ""
 
-#: gourl-woocommerce.php:877
+#: gourl-woocommerce.php:881
 #, php-format
 msgid ""
 "Payment is received successfully from the customer. You will see the bitcoin/"
@@ -379,11 +395,11 @@ msgid ""
 "particular customer already has instant access to your digital products"
 msgstr ""
 
-#: gourl-woocommerce.php:880
+#: gourl-woocommerce.php:884
 msgid "Order Status - Previously Received Payment Confirmed"
 msgstr ""
 
-#: gourl-woocommerce.php:884
+#: gourl-woocommerce.php:888
 msgid ""
 "About one hour after the payment is received, the bitcoin transaction should "
 "get 6 confirmations (for transactions using other cryptocoins ~ 20-30min)."
@@ -391,49 +407,49 @@ msgid ""
 "same money"
 msgstr ""
 
-#: gourl-woocommerce.php:887
+#: gourl-woocommerce.php:891
 msgid "Crypto Price on Product Page"
 msgstr ""
 
-#: gourl-woocommerce.php:891
+#: gourl-woocommerce.php:895
 msgid ""
 "Display additional crypto price/s with fiat price on the WooCommerce product "
 "page. For, example: $100.25 / 0.0145 &#579;"
 msgstr ""
 
-#: gourl-woocommerce.php:894
+#: gourl-woocommerce.php:898
 msgid "PaymentBox Language"
 msgstr ""
 
-#: gourl-woocommerce.php:898
+#: gourl-woocommerce.php:902
 msgid "Default Crypto Payment Box Localisation"
 msgstr ""
 
-#: gourl-woocommerce.php:901
+#: gourl-woocommerce.php:905
 msgid "PaymentBox Default Coin"
 msgstr ""
 
-#: gourl-woocommerce.php:905
+#: gourl-woocommerce.php:909
 #, php-format
 msgid ""
 "Default Coin in Crypto Payment Box. Activated Payments : <a href='%s'>%s</a>"
 msgstr ""
 
-#: gourl-woocommerce.php:908
+#: gourl-woocommerce.php:912
 msgid "Icons Size"
 msgstr ""
 
-#: gourl-woocommerce.php:912
+#: gourl-woocommerce.php:916
 msgid ""
 "Cryptocoin icons size in 'Select Payment Method' that the customer will see "
 "on your checkout. Default 60px. Allowed: 30..250px"
 msgstr ""
 
-#: gourl-woocommerce.php:915
+#: gourl-woocommerce.php:919
 msgid "Mobile Friendly Payment Box Style"
 msgstr ""
 
-#: gourl-woocommerce.php:917
+#: gourl-woocommerce.php:921
 #, php-format
 msgid ""
 "Additional options for Mobile Friendly Payment Box (not iFrame).<br>Box "
@@ -443,89 +459,89 @@ msgid ""
 "a>"
 msgstr ""
 
-#: gourl-woocommerce.php:920
+#: gourl-woocommerce.php:924
 msgid "Custom Payment Text"
 msgstr ""
 
-#: gourl-woocommerce.php:923
+#: gourl-woocommerce.php:927
 msgid ""
 "Your text on payment page below \"Pay Now\" title. For example, you can add "
 "\"If you have any questions please feel free to contact us at any time on "
 "(telephone) or contact by (email)\""
 msgstr ""
 
-#: gourl-woocommerce.php:926
+#: gourl-woocommerce.php:930
 msgid "QRcode Size"
 msgstr ""
 
-#: gourl-woocommerce.php:930
+#: gourl-woocommerce.php:934
 #, php-format
 msgid ""
 "QRcode image size in payment box. Default 200px. Allowed: 0..500px. Demo - "
 "<a href='%s'>large qrcode</a> / <a href='%s'>small qrcode</a>"
 msgstr ""
 
-#: gourl-woocommerce.php:933
+#: gourl-woocommerce.php:937
 msgid "Language Menu"
 msgstr ""
 
-#: gourl-woocommerce.php:937
+#: gourl-woocommerce.php:941
 msgid "Show or hide language selection menu above payment box"
 msgstr ""
 
-#: gourl-woocommerce.php:940
+#: gourl-woocommerce.php:944
 msgid "Redirect Url"
 msgstr ""
 
-#: gourl-woocommerce.php:943
+#: gourl-woocommerce.php:947
 msgid ""
 "Redirect to another page after payment is received (3 seconds delay). For "
 "example, http://yoursite.com/thank_you.php"
 msgstr ""
 
-#: gourl-woocommerce.php:947
+#: gourl-woocommerce.php:951
 msgid "Languages"
 msgstr ""
 
-#: gourl-woocommerce.php:949
+#: gourl-woocommerce.php:953
 #, php-format
 msgid ""
 "If you want to use GoUrl WooCommerce Bitcoin Gateway plugin in a language "
 "other than English, see the page <a href='%s'>Languages and Translations</a>"
 msgstr ""
 
-#: gourl-woocommerce.php:963
+#: gourl-woocommerce.php:967
 #, php-format
 msgid ""
 "If you like <b>Bitcoin Gateway for WooCommerce</b> please leave us a %s "
 "rating on %s. A huge thank you from GoUrl in advance!"
 msgstr ""
 
-#: gourl-woocommerce.php:985
+#: gourl-woocommerce.php:989
 msgid "Awaiting payment notification from GoUrl"
 msgstr ""
 
-#: gourl-woocommerce.php:1055
+#: gourl-woocommerce.php:1059
 #, php-format
 msgid ""
 "Order Created by %s<br>Order Total: %s<br>Awaiting Cryptocurrency <a "
 "href='%s'>Payment</a> ..."
 msgstr ""
 
-#: gourl-woocommerce.php:1091
+#: gourl-woocommerce.php:1095
 #, php-format
 msgid ""
 "The GoUrl payment plugin was called to process a payment but could not "
 "retrieve the order details for orderID %s. Cannot continue!"
 msgstr ""
 
-#: gourl-woocommerce.php:1096
+#: gourl-woocommerce.php:1100
 msgid ""
 "This order's status is 'Cancelled' - it cannot be paid for. Please contact "
 "us if you need assistance."
 msgstr ""
 
-#: gourl-woocommerce.php:1101
+#: gourl-woocommerce.php:1105
 #, php-format
 msgid ""
 "Please try a different payment method. Admin need to install and activate "
@@ -533,67 +549,67 @@ msgid ""
 "accept Bitcoin/Altcoin Payments online."
 msgstr ""
 
-#: gourl-woocommerce.php:1106
+#: gourl-woocommerce.php:1110
 #, php-format
 msgid ""
 "Sorry, but there was an error processing your order. Please try a different "
 "payment method or contact us if you need assistance (Bitcoin Gateway Plugin "
-"v1.4.15+ not configured / %s not activated)."
+"v1.4.17+ not configured / %s not activated)."
 msgstr ""
 
-#: gourl-woocommerce.php:1138
+#: gourl-woocommerce.php:1142
 msgid ""
 "You need first to login or register on the website to make Bitcoin/Altcoin "
 "Payments"
 msgstr ""
 
-#: gourl-woocommerce.php:1144
+#: gourl-woocommerce.php:1148
 #, php-format
 msgid ""
 "This order's amount is %s - it cannot be paid for. Please contact us if you "
 "need assistance."
 msgstr ""
 
-#: gourl-woocommerce.php:1158
+#: gourl-woocommerce.php:1164
 #, php-format
 msgid ""
 "Sorry, but there was an error processing your order. Please try later or use "
 "a different payment method. System cannot receive exchange rates for %s/USD "
-"from ecb.europa.eu / currencyconverterapi.com"
+"from Ecb.europa.eu / Currencyconverterapi.com %s"
 msgstr ""
 
-#: gourl-woocommerce.php:1179
+#: gourl-woocommerce.php:1185
 msgid "Pay Now -"
 msgstr ""
 
-#: gourl-woocommerce.php:1186
+#: gourl-woocommerce.php:1192
 msgid ""
 "Sorry, but there was an error processing your order. Please try a different "
 "payment method."
 msgstr ""
 
-#: gourl-woocommerce.php:1195
+#: gourl-woocommerce.php:1201
 #, php-format
 msgid "%s Payment ID: #%s"
 msgstr ""
 
-#: gourl-woocommerce.php:1304
+#: gourl-woocommerce.php:1310
 #, php-format
 msgid ""
 "%s Payment Received<br>%s<br>Payment id <a href='%s'>%s</a> / <a "
 "href='%s'>order page</a> <br>Awaiting network confirmation..."
 msgstr ""
 
-#: gourl-woocommerce.php:1319
+#: gourl-woocommerce.php:1325
 #, php-format
 msgid "%s Payment id <a href='%s'>%s</a> Confirmed"
 msgstr ""
 
-#: gourl-woocommerce.php:1342
+#: gourl-woocommerce.php:1348
 msgid "User"
 msgstr ""
 
-#: gourl-woocommerce.php:1347
+#: gourl-woocommerce.php:1353
 #, php-format
 msgid ""
 "Bitcoin/altcoin recurring payments not available. %s <br/> %s need to "
