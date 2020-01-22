@@ -3,7 +3,7 @@
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon. White Label Solution
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
 Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoin Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Poloniex Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Dogecoin, Speedcoin, Feathercoin, Reddcoin, Potcoin, Vertcoin, Peercoin, MonetaryUnit payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.2.8
+Version: 			1.3.0
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 WC requires at least: 	2.1.0
@@ -30,6 +30,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		add_action( 'plugins_loaded', 		'gourl_wc_gateway_load', 20 );
 		add_filter( 'plugin_action_links', 	'gourl_wc_action_links', 10, 2 );
 		add_action( 'plugins_loaded', 		'gourl_wc_load_textdomain' );
+		add_filter( 'plugin_row_meta', 		'gourl_wc_plugin_meta', 10, 2 );
 	}
 
 
@@ -77,7 +78,27 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 
-
+	/*
+	 *  2b.
+	 */
+	function gourl_wc_plugin_meta( $links, $file ) {
+	    
+	    if ( strpos( $file, 'gourl-woocommerce.php' ) !== false && class_exists('WC_Payment_Gateway') && defined('GOURL') ) {
+	        
+	        // Set link for Reviews.
+	        $new_links = array('<a style="color:#0073aa" href="https://wordpress.org/support/plugin/gourl-woocommerce-bitcoin-altcoin-payment-gateway-addon/reviews/?filter=5" target="_blank"><span class="dashicons dashicons-thumbs-up"></span> ' . __( 'Vote!', GOURLWC ) . '</a>',
+	        );
+	        
+	        $links = array_merge( $links, $new_links );
+	    }
+	    
+	    return $links;
+	}
+	
+	
+	
+	
+	
  /*
   *	Plugin Load
   */
@@ -676,9 +697,9 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 			if (class_exists('gourlclass') && defined('GOURL') && defined('GOURL_ADMIN') && is_object($gourl))
 			{
-				if (true === version_compare(GOURL_VERSION, '1.4.17', '<'))
+				if (true === version_compare(GOURL_VERSION, '1.5.0)', '<'))
 				{
-					if ($enabled) $this->method_description .= '<div class="error"><p><b>' .sprintf(__( "Your GoUrl Bitcoin Gateway <a href='%s'>Main Plugin</a> version is too old. Requires 1.4.17 or higher version. Please <a href='%s'>update</a> to latest version.", GOURLWC ), GOURL_ADMIN.GOURL, $this->mainplugin_url)."</b> &#160; &#160; &#160; &#160; " .
+					if ($enabled) $this->method_description .= '<div class="error"><p><b>' .sprintf(__( "Your GoUrl Bitcoin Gateway <a href='%s'>Main Plugin</a> version is too old. Requires 1.5.0 or higher version. Please <a href='%s'>update</a> to latest version.", GOURLWC ), GOURL_ADMIN.GOURL, $this->mainplugin_url)."</b> &#160; &#160; &#160; &#160; " .
 							  __( 'Information', GOURLWC ) . ": &#160; <a href='https://gourl.io/bitcoin-wordpress-plugin.html'>".__( 'Main Plugin Homepage', GOURLWC )."</a> &#160; &#160; &#160; " .
 							  "<a href='https://wordpress.org/plugins/gourl-bitcoin-payment-gateway-paid-downloads-membership/'>".__( 'WordPress.org Plugin Page', GOURLWC )."</a></p></div>";
 				}
@@ -799,7 +820,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 
-	    	if (!is_numeric($this->logo) || !in_array($this->logo, array(0,1,2,3,4,5,6,7,8,9,10)))      $this->logo = 1;
+	    	if (!is_numeric($this->logo) || !in_array($this->logo, array(0,1,2,3,4,5,6,7,8,9,10)))      $this->logo = 6;
 	    	if (!$this->emultiplier || !is_numeric($this->emultiplier) || $this->emultiplier < 0.01)    $this->emultiplier = 1;
 	    	if (!is_numeric($this->iconwidth) || $this->iconwidth < 30 || $this->iconwidth > 250)       $this->iconwidth = 60;
 	    	if (!is_numeric($this->qrcodesize) || $this->qrcodesize < 0 || $this->qrcodesize > 500)     $this->qrcodesize = 200;
@@ -1104,10 +1125,10 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 			echo '<br><h2>' . __( 'Information', GOURLWC ) . '</h2>' . PHP_EOL;
 			echo "<div class='woocommerce-error'>".sprintf(__( "Please try a different payment method. Admin need to install and activate wordpress plugin <a href='%s'>GoUrl Bitcoin Gateway for Wordpress</a> to accept Bitcoin/Altcoin Payments online.", GOURLWC), "https://gourl.io/bitcoin-wordpress-plugin.html")."</div>";
 		}
-		elseif (!$this->payments || !$this->defcoin || true === version_compare(WOOCOMMERCE_VERSION, '2.1', '<') || true === version_compare(GOURL_VERSION, '1.4.17', '<'))
+		elseif (!$this->payments || !$this->defcoin || true === version_compare(WOOCOMMERCE_VERSION, '2.1', '<') || true === version_compare(GOURL_VERSION, '1.5.0', '<'))
 		{
 			echo '<br><h2>' . __( 'Information', GOURLWC ) . '</h2>' . PHP_EOL;
-			echo  "<div class='woocommerce-error'>".sprintf(__( 'Sorry, but there was an error processing your order. Please try a different payment method or contact us if you need assistance (Bitcoin Gateway Plugin v1.4.17+ not configured / %s not activated).', GOURLWC ),(!$this->payments || !$this->defcoin || !isset($this->coin_names[$order_currency])? $this->title : $this->coin_names[$order_currency]))."</div>";
+			echo  "<div class='woocommerce-error'>".sprintf(__( 'Sorry, but there was an error processing your order. Please try a different payment method or contact us if you need assistance (Bitcoin Gateway Plugin v1.5.0+ not configured / %s not activated).', GOURLWC ),(!$this->payments || !$this->defcoin || !isset($this->coin_names[$order_currency])? $this->title : $this->coin_names[$order_currency]))."</div>";
 		}
 		else
 		{
@@ -1402,6 +1423,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load() 
+ // end gourl_wc_gateway_load()       
 
 }

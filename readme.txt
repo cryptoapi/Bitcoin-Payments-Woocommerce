@@ -3,10 +3,10 @@ Contributors: gourl, GoUrl.io
 Plugin Name: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon. White Label Solution
 Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io
-Tags: woocommerce, bitcoin, accept bitcoin, bitcoin payments, bitcoin woocommerce, bitcoin wordpress plugin, bitcoin wordpress, bitcoincash, bitcoin cash, bitcoinsv, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, bitcoin sv, white label, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, potcoin, monetaryunit, peercoin
+Tags: woocommerce, bitcoin, accept bitcoin, bitcoin payments, bitcoin woocommerce, bitcoin wordpress plugin, bitcoin wordpress, bitcoincash, bitcoin cash, bitcoinsv, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, bitcoin sv, white label, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, potcoin, peercoin
 Requires at least: 3.5
-Tested up to: 5.1
-Stable Tag: 1.2.8
+Tested up to: 5.4
+Stable Tag: 1.3.0
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -16,7 +16,7 @@ Provides Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher. White L
 
 == Description ==
 
-**[SEE INSTRUCTION](https://bitcointalk.org/index.php?topic=1043437.0) - START YOUR OWN FREE BITCOIN SHOP IN 10 MINUTES** - Bitcoin/Paypal Payments in WordPress/WooCommerce.
+**[SEE INSTRUCTION](https://tishonator.com/blog/how-to-add-bitcoin-payment-to-your-woocommerce-store) and [Forum](https://bitcointalk.org/index.php?topic=1043437.0) - START YOUR OWN FREE BITCOIN SHOP IN 10 MINUTES** - Bitcoin/Paypal Payments in WordPress/WooCommerce.
 
 [Screenshots](https://gourl.io/bitcoin-payments-woocommerce.html#screenshot)
 
@@ -96,6 +96,17 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 
 == Changelog == 
+
+= 1.3.0 =
+*  Several new enhancements
+*  Added Albanian Language (Thanks to Meso J.)
+*  Added Czech Language (Thanks to Kneebo T.)
+*  Added Estonian Language (Thanks to Aimar)
+*  Added Finnish Language (Thanks to Rami V.)
+*  Added Greek Language (Thanks to Charalampos P, Bay)
+*  Added Serbian Language (Thanks to Nikola L.)
+*  Added Slovenian Language (Thanks to Grega J.)
+*  Added Swedish Language (Thanks to Jack)
 
 = 1.2.8 =
 Added support currencyconverterapi.com free/premium keys
@@ -178,5 +189,5 @@ Customize payment logo
 Minor updates
 
 = 1.0.0 =
-Initial Release
+Initial Release  
     
