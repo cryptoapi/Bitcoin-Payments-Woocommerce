@@ -2,7 +2,7 @@
 GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 -----------------------------------------------------------
 
-Version 1.3.2
+Version 1.3.3
 
 **Wordpress Plugin provides a Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher.**
 
@@ -15,7 +15,7 @@ White Label Solution. Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Do
 * Instruction: [https://tishonator.com/blog/how-to-add-bitcoin-payment-to-your-woocommerce-store](https://tishonator.com/blog/how-to-add-bitcoin-payment-to-your-woocommerce-store)
 * Requires at least: Wordpress 3.5 and WooCommerce 2.1
 * Tested up to: Wordpress 5.5 and WooCommerce 4.1
-* Stable Tag: 1.3.2
+* Stable Tag: 1.3.3
 * License: GNU Version 2 or Any Later Version
 
 .
