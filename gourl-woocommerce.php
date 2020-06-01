@@ -171,7 +171,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	      return;
 
 			
-		// woocommerc subscriptions only
+		// WooCommerce Subscriptions only
 		if (!class_exists( 'WC_Subscriptions_Order' )) return; 
 
     
@@ -544,15 +544,15 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		if (is_user_logged_in() && ($coin || (stripos($method_title, "bitcoin")!==false && ($order_status == "pending" || $post_status=="wc-pending"))) && (current_user_can('administrator') || get_current_user_id() == $userID))
 		{   
 		    echo "	
-			<h2>Payment</h2>
+			<h2>".__( 'Payment', GOURLWC )."</h2>
 			<table class='woocommerce-table shop_table'>
 			<tbody>
 			<tr>
-			<th>Order Status</th>
-			<td>Pending</td>
+			<th>".__( 'Order Status', GOURLWC )."</th>
+			<td>".__( 'Pending', GOURLWC )."</td>
 			</tr>
 			<tr>
-			<th>Payment Details</th>
+			<th>".__( 'Payment Details', GOURLWC )."</th>
 			<td><a href='".$order->get_checkout_order_received_url()."&".CRYPTOBOX_COINS_HTMLID."=".strtolower($coin)."&prvw=1' class='button wc-forward'>".__( 'Pay Now / Status &#187;', GOURLWC )." </a></td>
 			</tr>	
 			</tbody>
@@ -1505,6 +1505,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load()   
+ // end gourl_wc_gateway_load()        
 
 }
