@@ -2,7 +2,7 @@
 GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon
 -----------------------------------------------------------
 
-Version 1.3.5
+Version 1.3.6
 
 **Wordpress Plugin provides a Bitcoin/Altcoin Payment Gateway for WooCommerce 2.1+ or higher.**
 
@@ -15,7 +15,7 @@ White Label Solution. Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Do
 * Instruction: [https://tishonator.com/blog/how-to-add-bitcoin-payment-to-your-woocommerce-store](https://tishonator.com/blog/how-to-add-bitcoin-payment-to-your-woocommerce-store)
 * Requires at least: Wordpress 3.5 and WooCommerce 2.1
 * Tested up to: Wordpress 5.5 and WooCommerce 4.2
-* Stable Tag: 1.3.5
+* Stable Tag: 1.3.6
 * License: GNU Version 2 or Any Later Version
 
 .
@@ -28,10 +28,10 @@ White Label Solution. Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Do
 * Provides a Cryptocurrency Payment Gateway for [WooCommerce 2.1 or higher](https://wordpress.org/plugins/woocommerce/)
 * No Monthly Fee, No Bank Account Needed, Transaction Fee from 0%
 * No Chargebacks, Global, Secure. All in automatic mode.
+* NEW!!! SUPPORT WooCommerce Subscriptions 3 (free plugin on [Github](https://github.com/wp-premium/woocommerce-subscriptions))
 * Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Dogecoin, Speedcoin, Reddcoin, Potcoin, Feathercoin, Vertcoin, Peercoin, MonetaryUnit payments in WooCommerce
 * Mobile Friendly customizable Payment Box; Direct Integration on your website, no external payment pages opens (as other payment gateways offer)
 * White Label Solution with Your Logo ([see Demo](https://gourl.io/lib/examples/box_only.php)) - user browser receive payment data from your server/website only; your server receive data from our server. 
-* NEW!!! SUPPORT WooCommerce Subscriptions 3 (free plugin on [Github](https://github.com/wp-premium/woocommerce-subscriptions))
 * Display additional crypto price with fiat price on the WooCommerce product page ([screenshot](https://gourl.io/images/woocommerce/screenshot-8.png))
 * Get crypto payments straight to your bitcoin/altcoin wallet addresses. [Read here](https://gourl.io/#usd) how to convert cryptocurrency to USD/EUR/etc
 * Live Exchange Rates with additional Exchange Rate Multiplier (i.e. 1.05 - will add extra 5% to the total price in bitcoins)

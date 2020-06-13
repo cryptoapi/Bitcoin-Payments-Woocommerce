@@ -3,7 +3,7 @@
 Plugin Name: 		GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway Addon. White Label Solution
 Plugin URI: 		https://gourl.io/bitcoin-payments-woocommerce.html
 Description: 		Provides a <a href="https://gourl.io">GoUrl.io</a> Bitcoin/Altcoin Payment Gateway for <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce 2.1+</a>. Support product prices in USD/EUR/etc and in Bitcoin/Altcoins directly; sends the amount straight to your business Bitcoin/Altcoin wallet. Convert your USD/EUR/etc prices to cryptocoins using Google/Poloniex Exchange Rates. Direct Integration on your website, no external payment pages opens (as other payment gateways offer). Accept Bitcoin, BitcoinCash, BitcoinSV, Litecoin, Dash, Dogecoin, Speedcoin, Feathercoin, Reddcoin, Potcoin, Vertcoin, Peercoin, MonetaryUnit payments online. You will see the bitcoin/altcoin payment statistics in one common table on your website. No Chargebacks, Global, Secure. All in automatic mode.
-Version: 			1.3.5
+Version: 			1.3.6
 Author: 			GoUrl.io
 Author URI: 		https://gourl.io
 WC requires at least: 	2.1.0
@@ -21,7 +21,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	DEFINE('GOURLWC', 'gourl-woocommerce');
-	DEFINE('GOURLWC_VERSION', '1.3.5');
+	DEFINE('GOURLWC_VERSION', '1.3.6');
 	DEFINE('GOURLWC_2WAY', json_encode(array("BTC", "BCH", "BSV", "LTC", "DASH", "DOGE")));
 
 
@@ -83,23 +83,23 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	 *  3.
 	 */
 	function gourl_wc_plugin_meta( $links, $file ) {
-	    
+
 	    if ( strpos( $file, 'gourl-woocommerce.php' ) !== false && class_exists('WC_Payment_Gateway') && defined('GOURL') ) {
-	        
+
 	        // Set link for Reviews.
 	        $new_links = array('<a style="color:#0073aa" href="https://wordpress.org/support/plugin/gourl-woocommerce-bitcoin-altcoin-payment-gateway-addon/reviews/?filter=5" target="_blank"><span class="dashicons dashicons-thumbs-up"></span> ' . __( 'Vote!', GOURLWC ) . '</a>',
 	        );
-	        
+
 	        $links = array_merge( $links, $new_links );
 	    }
-	    
+
 	    return $links;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
  /*
   *	4. Plugin Load
   */
@@ -121,7 +121,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	add_action( 'woocommerce_before_calculate_totals', 	'gourl_wc_remove_trial', 100, 1);
 
 	// remove trial subscription period if bitcoin gateway selected
-	add_action( 'woocommerce_cart_calculate_fees', 		'gourl_wc_remove_bitcoin_trial', 100, 1 );  
+	add_action( 'woocommerce_cart_calculate_fees', 		'gourl_wc_remove_bitcoin_trial', 100, 1 );
 	// jQuery - Update checkout on method payment change
 	add_action( 'wp_footer',					'gourl_wc_remove_bitcoin_jqscript' );
 
@@ -154,19 +154,73 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	    }
 	}
 
-	add_filter('woocommerce_get_variation_prices_hash',              'gourl_wc_variation_prices_hash', 10, 1 );
-	add_action('woocommerce_before_calculate_totals',                'gourl_wc_2way_prices' );
-	add_action('woocommerce_admin_order_data_after_billing_address', 'gourl_wc_admin_order_stats');
+	add_filter('woocommerce_get_variation_prices_hash',              	'gourl_wc_variation_prices_hash', 10, 1 );
+	add_action('woocommerce_before_calculate_totals',                	'gourl_wc_2way_prices' );
+	add_action('woocommerce_admin_order_data_after_billing_address', 	'gourl_wc_admin_order_stats');
+	add_filter( 'woocommerce_get_settings_products', 						'gourl_productcrypto_section', 10, 2 );
 
 
 
-     
+	/**
+	 * 5. Add product crypto section to WooCommerce-Settings-Products
+	 */
+	function gourl_productcrypto_section( $settings, $current_section )
+	{
+		// Check the current section is WooCommerce-Settings-Products
+		if ( class_exists('gourlclass') && defined('GOURL') && is_array($settings) && isset($settings[0]["id"]) && $settings[0]["id"] == "catalog_options" && $settings[0]["type"] == "title")
+		{
+			$coin_names = gourlclass::coin_names();
+			$cryptoprices = array( __( "Original Price only", GOURLWC ) );
+			foreach ($coin_names as $k => $v) $cryptoprices[$k] = sprintf(__( "Fiat + %s", GOURLWC ), ucwords($v));
+
+			foreach ($coin_names as $k => $v)
+				 foreach ($coin_names as $k2 => $v2)
+						if ($k != $k2) $cryptoprices[$k."_".$k2] = sprintf(__( "Fiat + %s + %s", GOURLWC ), ucwords($v), ucwords($v2));
+
+			$settings[] = array(
+				'name' 	=> __( 'Bitcoin/Altcoin Price', GOURLWC ),
+				'type' 	=> 'title',
+				'desc' 	=> __( 'Display product prices in cryptocurrency', GOURLWC ),
+				'id' 		=> 'wcgourl' );
+
+			$settings[] = array(
+				'name'     => __('Additional Crypto Price on Product Page', GOURLWC ),
+				'desc'     	=> __('Display additional Bitcoin/Altcoin Price with Fiat Price on WooCommerce Product Page. <br>For, example: $100.25 / 0.0145 &#579;', GOURLWC ),
+				'id'       	=> 'wcgourl_cryptoprice_copy',
+				'class' 		=> 'wc-enhanced-select',
+				'css' 		=> 'min-width:200px;',
+				'type' 		=> 'select',
+				'options' 	=> $cryptoprices
+			);
+
+			$settings[] = array(
+				'name'      => __('Product Prices in Cryptocurrency ONLY', GOURLWC ),
+				'desc'     	=> sprintf(__('Please setup WooCommerce "Currency" <a href="%s">here &#187;</a><br>For example: <b>USD</b> only, <b>Cryptocurrency Bitcoin</b> only, OR <b>Admin use USD and user see prices in BTC</b>, etc', GOURLWC ), admin_url('admin.php?page=wc-settings#pricing_options-description')),
+				'id'       	=> 'wcgourl_crypto_info',
+				'class' 	=> 'disabled',
+				'type' 		=> 'checkbox'
+			);
+
+			$settings[] = array(
+				'name'      => __('Bitcoin Payment Box Settings', GOURLWC ),
+				'desc'     	=> sprintf(__('Goto - a. <a href="%s">WooCommerce Bitcoin</a> settings and b. <a href="%s">Global WordPress Bitcoin</a> settings page', GOURLWC ), admin_url('admin.php?page=wc-settings&tab=checkout&section=gourlpayments'), admin_url('admin.php?page=gourlsettings')),
+				'id'       	=> 'wcgourl_crypto_info2',
+				'class' 	=> 'disabled',
+				'type' 		=> 'checkbox'
+			);
+
+			$settings[] = array( 'type' => 'sectionend', 'id' => 'wcgourl' );
+		}
+
+		return $settings;
+	}
+
 
 
 	/*
-	 * 5. remove trial subscription period if user used before 
+	 * 6. remove trial subscription period if user used before
 	*/
-	function gourl_wc_remove_trial( $cart ) 
+	function gourl_wc_remove_trial( $cart )
 	{
 		global $wpdb;
 		global $woocommerce;
@@ -178,14 +232,14 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	    	if ( did_action( 'woocommerce_before_calculate_totals' ) >= 2 ) return;
 
 		// WooCommerce Subscriptions only
-		if (!class_exists( 'WC_Subscriptions_Order' )) return; 
+		if (!class_exists( 'WC_Subscriptions_Order' )) return;
 
 		$gateways = $woocommerce->payment_gateways->payment_gateways();
-		if (!isset($gateways['gourlpayments'])) return; 
+		if (!isset($gateways['gourlpayments'])) return;
 
 		// get all subscriptions IDS
 		$subscriptions_ids = $wpdb->get_col("
-			 SELECT ID  FROM {$wpdb->prefix}posts 
+			 SELECT ID  FROM {$wpdb->prefix}posts
 			 WHERE post_type LIKE 'shop_subscription'
 			");
 
@@ -201,11 +255,11 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 			$trial_end = $data->get_date( 'trial_end' );
 			$expired = ($trial_end) ? (strtotime($trial_end) > strtotime("2000-01-01") && strtotime($trial_end) < strtotime("now")) : false;
 
-			if ($data->get_customer_id() == $userID && ($expired || $data->get_status() != 'pending'))  
-			{        
-				$items = $data->get_items();	
+			if ($data->get_customer_id() == $userID && ($expired || $data->get_status() != 'pending'))
+			{
+				$items = $data->get_items();
 				foreach( $items as $item ) {
-					$product = $item->get_product();  
+					$product = $item->get_product();
 					$product_id = $product->get_id();
 					$arr[] = $product_id;
 				}
@@ -214,42 +268,45 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 		// Loop through cart items
 		if ($arr)
-		foreach ( $cart->get_cart() as $item ) 
-		{         
+		foreach ( $cart->get_cart() as $item )
+		{
 			if ( (is_a( $item['data'], 'WC_Product_Subscription' ) || is_a( $item['data'], 'WC_Product_Subscription_Variation' )) &&
 				WC_Subscriptions_Product::get_trial_length( $item['data'] ) > 0 )
-			{                              
+			{
 				// trial used already
 				$product_id  = (true === version_compare(WOOCOMMERCE_VERSION, '3.0', '<')) ? $item['data']->id : $item['data']->get_id();
-			    	if (in_array($product_id , $arr)) 
+			    	if (in_array($product_id , $arr))
 				{
 				   	wcs_set_objects_property( $item['data'], 'subscription_trial_length', 0, 'set_prop_only' );
 
-	    				if ( is_cart() && strlen($gateways['gourlpayments']->sbc_usedtrialtxt) > 3) 
-					{    
+	    				if ( is_cart() && strlen($gateways['gourlpayments']->sbc_usedtrialtxt) > 3)
+					{
 						//Add text above the proceed to checkout button
 						add_action('woocommerce_proceed_to_checkout', 'gourl_wc_cart_message');
-
-						function gourl_wc_cart_message() 
-						{ 
-							global $woocommerce;
-
-							$gateways = $woocommerce->payment_gateways->payment_gateways(); 									
-							echo '<div class="woocommerce-info">'.$gateways['gourlpayments']->sbc_usedtrialtxt.'</div>';
-						}
-					} 
+					}
 				}
 			}
 		}
 	}
 
 
+	/*
+	*	7. Text above shopping cart
+	*/
+	function gourl_wc_cart_message()
+	{
+		global $woocommerce;
+
+		$gateways = $woocommerce->payment_gateways->payment_gateways();
+		echo '<div class="woocommerce-info">'.$gateways['gourlpayments']->sbc_usedtrialtxt.'</div>';
+	}
+
 
 	/*
-	 *	Call when change payment method on checkout page
+	 *	8. Call when change payment method on checkout page
 	 */
-	function gourl_wc_remove_bitcoin_trial ( $cart ) 
-	{  	
+	function gourl_wc_remove_bitcoin_trial ( $cart )
+	{
 		global $woocommerce;
 
 		// This is necessary for WC 3.0+
@@ -259,24 +316,24 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	    	if ( did_action( 'woocommerce_before_calculate_totals' ) >= 2 ) return;
 
 		// WooCommerce Subscriptions only
-		if (!class_exists( 'WC_Subscriptions_Order' )) return; 
+		if (!class_exists( 'WC_Subscriptions_Order' )) return;
 
  		// Returns true when viewing the cart page
-		if ( is_cart() ) return; 
+		if ( is_cart() ) return;
 
 		// No Option 'Do NOT Allow WooCommerce Subscriptions Trial Period for Crypto'
 		$gateways = $woocommerce->payment_gateways->payment_gateways();
-		if (!isset($gateways['gourlpayments'])) return; 		
+		if (!isset($gateways['gourlpayments'])) return;
 		if ($gateways['gourlpayments']->sbc_notrial != 'yes') return;
 
 
-		$f = false;			
-		if ( WC()->session->get('chosen_payment_method') === 'gourlpayments' ) 
-		foreach ( $cart->get_cart() as $item ) 
-		{         
+		$f = false;
+		if ( WC()->session->get('chosen_payment_method') === 'gourlpayments' )
+		foreach ( $cart->get_cart() as $item )
+		{
 			if ( (is_a( $item['data'], 'WC_Product_Subscription' ) || is_a( $item['data'], 'WC_Product_Subscription_Variation' )) &&
 				WC_Subscriptions_Product::get_trial_length( $item['data'] ) > 0 )
-				{     
+				{
 					wcs_set_objects_property( $item['data'], 'subscription_trial_length', 0, 'set_prop_only' );
 					$f = true;
 				}
@@ -285,32 +342,34 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		if ($f)  // trial period removed
 		{
 			WC()->cart->calculate_totals();
- 
+
 			if (strlen($gateways['gourlpayments']->sbc_notrialtxt) > 3) add_filter('woocommerce_available_payment_gateways', 'gourl_wc_btc_trialpayment_notice');
-			
-			function gourl_wc_btc_trialpayment_notice () 
-			{
-				global $woocommerce;
-
-				$gateways = $woocommerce->payment_gateways->payment_gateways();
-				if($gateways['gourlpayments']) 
-				{     
-					if ( !defined( 'DOING_AJAX' ) ) return $gateways;  
-					$gateways['gourlpayments']->description .= '<p><b>'.$gateways['gourlpayments']->sbc_notrialtxt.'</b></p>';
-				}
-				return $gateways;
-			}
-
 		}
 	}
 
 
 
+	/*
+	* 9. Trial membership used notice in shopping cart
+	*/
+	function gourl_wc_btc_trialpayment_notice ()
+	{
+		global $woocommerce;
+
+		$gateways = $woocommerce->payment_gateways->payment_gateways();
+		if($gateways['gourlpayments'])
+		{
+			if ( !defined( 'DOING_AJAX' ) ) return $gateways;
+			$gateways['gourlpayments']->description .= '<p><b>'.$gateways['gourlpayments']->sbc_notrialtxt.'</b></p>';
+		}
+		return $gateways;
+	}
+
 
 	/*
-	 *	Call when change payment method on checkout page
+	 *	10. Call when change payment method on checkout page
 	 */
-	function gourl_wc_remove_bitcoin_jqscript() 
+	function gourl_wc_remove_bitcoin_jqscript()
 	{
 		if ( is_checkout() && ! is_wc_endpoint_url() ) :
 			?>
@@ -328,19 +387,19 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 
- 	/*	
-	 *	Hide "Cancel" button on subscriptions that are "active" or "on-hold"
+ 	/*
+	 *	11. Hide "Cancel" button on subscriptions that are "active" or "on-hold"
 	 */
-	function gourl_wc_view_subscription_button( $actions, $subscription ) 
+	function gourl_wc_view_subscription_button( $actions, $subscription )
 	{
 
 		if (in_array($subscription->get_payment_method(), array("gourlpayments", "")))
 		foreach ( $actions as $action_key => $action ) {
 			switch ( $action_key ) {
-				case 'cancel':   
+				case 'cancel':
 					unset( $actions[ $action_key ] );
 					break;
-				default: 
+				default:
 					break;
 			}
 		}
@@ -351,7 +410,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *	6. Add new cryptocurrencies to WooCommerce
+	 *	12. Add new cryptocurrencies to WooCommerce
 	 */
 	function gourl_wc_currencies ( $currencies )
 	{
@@ -392,7 +451,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *  7. You set product prices in USD/EUR/etc in the admin panel, and display those prices in Cryptocurrency (Bitcoin, BCH, BSV, LTC, DASH, DOGE)  for front-end users
+	 *  13. You set product prices in USD/EUR/etc in the admin panel, and display those prices in Cryptocurrency (Bitcoin, BCH, BSV, LTC, DASH, DOGE)  for front-end users
 	 *  Admin user - if current_user_can('manage_options') return true
 	*/
 	function gourl_wc_currency_type( $currency = "" )
@@ -427,7 +486,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *	8. Currency symbol
+	 *	14. Currency symbol
 	 */
 	function gourl_wc_currency_symbol ( $currency_symbol, $currency )
 	{
@@ -465,7 +524,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	}
 
 
-	// 9.
+	// 15.
 	function gourl_wc_price_html ( $price, $obj )
 	{
         global $woocommerce;
@@ -532,7 +591,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  	/*
-	 *	 10. Allowance: For fiat - 0..2 decimals, for cryptocurrency 0..4 decimals
+	 *	 16. Allowance: For fiat - 0..2 decimals, for cryptocurrency 0..4 decimals
 	 */
 	function gourl_wc_currency_decimals( $decimals )
 	{
@@ -572,7 +631,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *   11. You set product prices in USD/EUR/etc in the admin panel, and display those prices in Cryptocurrency (2way mode)
+	 *   17. You set product prices in USD/EUR/etc in the admin panel, and display those prices in Cryptocurrency (2way mode)
 	 *      Fix 'View Cart' preview 2way mode for admin
 	 */
 	function gourl_wc_2way_prices( $cart_object )
@@ -590,7 +649,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *	 12. Convert Fiat to cryptocurrency for end user
+	 *	 18. Convert Fiat to cryptocurrency for end user
 	 */
 	function gourl_wc_crypto_price ( $price, $product = '' )
 	{
@@ -632,7 +691,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *   13. Clear cache for live 2way crypto prices (update every hour)
+	 *   19. Clear cache for live 2way crypto prices (update every hour)
 	 */
 	function gourl_wc_variation_prices_hash( $hash )
 	{
@@ -647,7 +706,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *	14. Add GoUrl gateway
+	 *	20. Add GoUrl gateway
 	 */
 	function gourl_wc_gateway_add( $methods )
 	{
@@ -662,7 +721,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *	15. Transactions history
+	 *	21. Transactions history
 	 */
 	function gourl_wc_payment_history( $order_id )
 	{
@@ -676,10 +735,10 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 		$coin = get_post_meta($order_id, '_gourl_worder_coinname', true);
 		if (!$coin) $coin = get_post_meta($order_id, 'coinname', true); // compatible with old version gourl wc plugin
-              
+
 		if (is_user_logged_in() && ($coin || (stripos($method_title, "bitcoin")!==false && ($order_status == "pending" || $post_status=="wc-pending"))) && (current_user_can('administrator') || get_current_user_id() == $userID))
-		{   
-		    echo "	
+		{
+		    echo "
 			<h2>".__( 'Payment', GOURLWC )."</h2>
 			<table class='woocommerce-table shop_table'>
 			<tbody>
@@ -690,9 +749,9 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 			<tr>
 			<th>".__( 'Payment Details', GOURLWC )."</th>
 			<td><a href='".$order->get_checkout_order_received_url()."&".CRYPTOBOX_COINS_HTMLID."=".strtolower($coin)."&prvw=1' class='button wc-forward'>".__( 'Pay Now / Status &#187;', GOURLWC )." </a></td>
-			</tr>	
+			</tr>
 			</tbody>
-			</table>"; 
+			</table>";
 		}
 
 		return true;
@@ -703,7 +762,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *	16.
+	 *	22.
 	*/
 	function gourl_wc_payment_link( $order, $is_admin_email )
 	{
@@ -722,7 +781,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *	17. Payment info on order page
+	 *	23. Payment info on order page
 	*/
 	function gourl_wc_admin_order_stats( $order )
 	{
@@ -860,7 +919,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		private $languages          = array();
 		private $coin_names         = array('BTC' => 'bitcoin', 'BCH' => 'bitcoincash', 'BSV' => 'bitcoinsv', 'LTC' => 'litecoin', 'DASH' => 'dash', 'DOGE' => 'dogecoin', 'SPD' => 'speedcoin', 'RDD' => 'reddcoin', 'POT' => 'potcoin', 'FTC' => 'feathercoin', 'VTC' => 'vertcoin', 'PPC' => 'peercoin', 'UNIT' => 'universalcurrency', 'MUE' => 'monetaryunit');
 		private $statuses           = array('processing' => 'Processing Payment', 'on-hold' => 'On Hold', 'completed' => 'Completed');
-		private $cryptorices        = array();
+		private $cryptoprices        = array();
 		private $showhidemenu       = array('show' => 'Show Menu', 'hide' => 'Hide Menu');
 		private $mainplugin_url     = '';
 		private $url                = '';
@@ -869,8 +928,8 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 		private $cointxt            = '';
 
 		public  $sbc_notrial	    =  0;
-		public  $sbc_notrialtxt     = ''; 
-		public  $sbc_usedtrialtxt   = ''; 
+		public  $sbc_notrialtxt     = '';
+		public  $sbc_usedtrialtxt   = '';
 
 		private $logo               =  0;
 		private $emultiplier        = '';
@@ -889,11 +948,12 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 		/*
-		 * 18.1
+		 * 23.1
 		*/
 	    public function __construct()
 	    {
 	    	global $gourl;
+
 
 			$this->id                 	= 'gourlpayments';
 			$this->mainplugin_url 		= admin_url("plugin-install.php?tab=search&type=term&s=GoUrl+Official+Bitcoin+Payment+Gateway");
@@ -902,8 +962,8 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 			$this->method_description    .= "<a target='_blank' href='https://gourl.io/bitcoin-payments-woocommerce.html'>".__( 'Plugin Homepage', GOURLWC )."</a> &#160;&amp;&#160; <a target='_blank' href='https://gourl.io/bitcoin-payments-woocommerce.html#screenshot'>".__( 'screenshots', GOURLWC )." &#187;</a><br>";
 			$this->method_description    .= "<a target='_blank' href='https://github.com/cryptoapi/Bitcoin-Payments-Woocommerce'>".__( 'Plugin on Github - 100% Free Open Source', GOURLWC )." &#187;</a><br><br>";
 			$this->has_fields         	= false;
-			$this->supports 			= array( 'products', 
-							               'subscriptions', 
+			$this->supports 			= array( 'products',
+							               'subscriptions',
 							               'subscription_suspension',
 							               'subscription_reactivation',
 							               'multiple_subscriptions'
@@ -954,14 +1014,14 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 			if ($enabled) $this->method_description .= sprintf(__( "If you use multiple stores/sites online, please create separate <a target='_blank' href='%s'>GoUrl Payment Box</a> (with unique payment box public/private keys) for each of your stores/websites. Do not use the same GoUrl Payment Box with the same public/private keys on your different websites/stores.", GOURLWC ), "https://gourl.io/editrecord/coin_boxes/0") . '<br>'.
 					  sprintf(__( "Add additional altcoins (Litecoin/DASH/Bitcoin Cash/etc) to payment box <a href='%s'>here &#187;</a>", GOURLWC ), $this->url).'<br><br>';
 			else $this->method_description .= '<br>';
-			$this->method_description  .= sprintf(__( "NEW!!! Free <a href='%s'>WooCommerce Subscriptions</a> Plugin Supported. <a href='%s'>More Info and Download Link &#187;</a>", GOURLWC ), "https://woocommerce.com/products/woocommerce-subscriptions/", "#woocommerce_gourlpayments_emultiplier" ); 
+			$this->method_description  .= sprintf(__( "NEW!!! Free <a href='%s'>WooCommerce Subscriptions</a> Plugin Supported. <a href='%s'>More Info and Download Link &#187;</a>", GOURLWC ), "https://woocommerce.com/products/woocommerce-subscriptions/", "#woocommerce_gourlpayments_emultiplier" );
 
-			$this->cryptorices = array("Original Price only");
-			foreach ($this->coin_names as $k => $v) $this->cryptorices[$k] = sprintf(__( "Fiat + %s", GOURLWC ), ucwords($v));
+			$this->cryptoprices = array( __( "Original Price only", GOURLWC ) );
+			foreach ($this->coin_names as $k => $v) $this->cryptoprices[$k] = sprintf(__( "Fiat + %s", GOURLWC ), ucwords($v));
 
 			foreach ($this->coin_names as $k => $v)
 			    foreach ($this->coin_names as $k2 => $v2)
-			         if ($k != $k2) $this->cryptorices[$k."_".$k2] = sprintf(__( "Fiat + %s + %s", GOURLWC ), ucwords($v), ucwords($v2));
+			         if ($k != $k2) $this->cryptoprices[$k."_".$k2] = sprintf(__( "Fiat + %s + %s", GOURLWC ), ucwords($v), ucwords($v2));
 
 
 
@@ -1008,65 +1068,79 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	    /*
-	     * 18.2
+	     * 23.2
 	    */
 	    private function gourl_settings()
 	    {
-	    	// Define user set variables
-	    	$this->enabled      = $this->get_option( 'enabled' );
-	    	$this->title        = $this->get_option( 'title' );
-	    	$this->description  = $this->get_option( 'description' );
-	    	$this->logo         = $this->get_option( 'logo' );
-	    	$this->emultiplier  = trim(str_replace(array("%", ","), array("", "."), $this->get_option( 'emultiplier' )));
-	    	$this->ostatus      = $this->get_option( 'ostatus' );
-	    	$this->ostatus2     = $this->get_option( 'ostatus2' );
-	    	$this->cryptoprice  = $this->get_option( 'cryptoprice' );
-	    	$this->deflang      = $this->get_option( 'deflang' );
-	    	$this->defcoin      = $this->get_option( 'defcoin' );
-	    	$this->iconwidth    = trim(str_replace("px", "", $this->get_option( 'iconwidth' )));
 
-	    	$this->customtext   = $this->get_option( 'customtext' );
-	    	$this->qrcodesize   = trim(str_replace("px", "", $this->get_option( 'qrcodesize' )));
-	    	$this->langmenu     = $this->get_option( 'langmenu' );
-	    	$this->redirect     = $this->get_option( 'redirect' );
-
-		$this->sbc_notrial     	= $this->get_option( 'sbc_notrial' ); 
-		$this->sbc_notrialtxt   = $this->get_option( 'sbc_notrialtxt' ); 
-		$this->sbc_usedtrialtxt = $this->get_option( 'sbc_usedtrialtxt' ); 
+            // synchronize
+            if (current_user_can('manage_options'))
+            {
+                if (isset($_GET["page"]) && $_GET["page"] == "wc-settings" && isset($_GET["tab"]) && $_GET["tab"] == "products")
+                {
+                    if (get_option('wcgourl_cryptoprice_copy') != $this->settings["cryptoprice"]) $this->update_option('cryptoprice', get_option('wcgourl_cryptoprice_copy'));
+                }
+                else {
+                    if ($this->settings["cryptoprice"] != get_option('wcgourl_cryptoprice_copy')) update_option('wcgourl_cryptoprice_copy', $this->settings["cryptoprice"]);
+                }
+            }
 
 
-	    	// Re-check
-	    	if (!$this->title)                                    $this->settings["title"] 		= $this->title 		= __('Bitcoin/Altcoins', GOURLWC);
-	    	if (!$this->description)                              $this->settings["description"] 	= $this->description 	= __('Secure, anonymous payment with virtual currency', GOURLWC);
-	    	if (!isset($this->statuses[$this->ostatus]))          $this->settings["ostatus"] 		= $this->ostatus  	= 'processing';
-	    	if (!isset($this->statuses[$this->ostatus2]))         $this->settings["ostatus2"] 		= $this->ostatus2 	= 'processing';
-	    	if (!isset($this->cryptoprices[$this->cryptoprice]))  $this->settings["cryptoprice"] 	= $this->cryptoprice 	= '';
-	    	if (!isset($this->languages[$this->deflang]))         $this->settings["deflang"] 		= $this->deflang 		= 'en';
-	    	if (stripos($this->redirect, "http") !== 0)           $this->settings["redirect"] 		= $this->redirect     	= '';
-	    	if (!$this->sbc_notrialtxt)       				$this->settings["sbc_notrialtxt"] 	= $this->sbc_notrialtxt   = __('The free trial is not available with cryptocurrency !', GOURLWC);
-     		if (!$this->sbc_usedtrialtxt)       			$this->settings["sbc_usedtrialtxt"] = $this->sbc_usedtrialtxt = __('You have already used a Free Trial Subscription before', GOURLWC);
+            // Define user set variables
+            $this->enabled          = $this->get_option( 'enabled' );
+            $this->title            = $this->get_option( 'title' );
+            $this->description      = $this->get_option( 'description' );
+            $this->logo             = $this->get_option( 'logo' );
+            $this->emultiplier      = trim(str_replace(array("%", ","), array("", "."), $this->get_option( 'emultiplier' )));
+            $this->ostatus          = $this->get_option( 'ostatus' );
+            $this->ostatus2         = $this->get_option( 'ostatus2' );
+            $this->cryptoprice      = $this->get_option( 'cryptoprice' );
+            $this->deflang          = $this->get_option( 'deflang' );
+            $this->defcoin          = $this->get_option( 'defcoin' );
+            $this->iconwidth        = trim(str_replace("px", "", $this->get_option( 'iconwidth' )));
+
+            $this->customtext       = $this->get_option( 'customtext' );
+            $this->qrcodesize       = trim(str_replace("px", "", $this->get_option( 'qrcodesize' )));
+            $this->langmenu         = $this->get_option( 'langmenu' );
+            $this->redirect         = $this->get_option( 'redirect' );
+
+            $this->sbc_notrial      = $this->get_option( 'sbc_notrial' );
+            $this->sbc_notrialtxt   = $this->get_option( 'sbc_notrialtxt' );
+            $this->sbc_usedtrialtxt = $this->get_option( 'sbc_usedtrialtxt' );
+
+
+            // Re-check
+            if (!$this->title)                                      $this->settings["title"]            = $this->title 		   = __('Bitcoin/Altcoins', GOURLWC);
+            if (!$this->description)                                $this->settings["description"] 		= $this->description   = __('Secure, anonymous payment with virtual currency', GOURLWC);
+            if (!isset($this->statuses[$this->ostatus]))            $this->settings["ostatus"] 			= $this->ostatus  	   = 'processing';
+            if (!isset($this->statuses[$this->ostatus2]))           $this->settings["ostatus2"] 		= $this->ostatus2 	   = 'processing';
+            if (!isset($this->cryptoprices[$this->cryptoprice]))    $this->settings["cryptoprice"] 		= $this->cryptoprice   = '0';
+            if (!isset($this->languages[$this->deflang]))           $this->settings["deflang"] 			= $this->deflang 	   = 'en';
+            if (stripos($this->redirect, "http") !== 0)             $this->settings["redirect"] 		= $this->redirect      = '';
+            if (!$this->sbc_notrialtxt)                             $this->settings["sbc_notrialtxt"] 	= $this->sbc_notrialtxt   = __('The free trial is not available with cryptocurrency !', GOURLWC);
+            if (!$this->sbc_usedtrialtxt)       					$this->settings["sbc_usedtrialtxt"] = $this->sbc_usedtrialtxt = __('You have already used a Free Trial Subscription before', GOURLWC);
 
 
 
-	    	if (!is_numeric($this->logo) || !in_array($this->logo, array(0,1,2,3,4,5,6,7,8,9,10)))      $this->settings["logo"] = $this->logo = 6;
-	    	if (!$this->emultiplier || !is_numeric($this->emultiplier) || $this->emultiplier < 0.01)    $this->emultiplier 	= 1;
-	    	if (!is_numeric($this->iconwidth) || $this->iconwidth < 30 || $this->iconwidth > 250)       $this->iconwidth 	= 60;
-	    	if (!is_numeric($this->qrcodesize) || $this->qrcodesize < 0 || $this->qrcodesize > 500)     $this->qrcodesize 	= 200;
+            if (!is_numeric($this->logo) || !in_array($this->logo, array(0,1,2,3,4,5,6,7,8,9,10)))      $this->settings["logo"] = $this->logo = 6;
+            if (!$this->emultiplier || !is_numeric($this->emultiplier) || $this->emultiplier < 0.01)    $this->emultiplier 	= 1;
+            if (!is_numeric($this->iconwidth) || $this->iconwidth < 30 || $this->iconwidth > 250)       $this->iconwidth 	= 60;
+            if (!is_numeric($this->qrcodesize) || $this->qrcodesize < 0 || $this->qrcodesize > 500)     $this->qrcodesize 	= 200;
 
-	    	if ($this->defcoin && $this->payments && !isset($this->payments[$this->defcoin]))           $this->defcoin = key($this->payments);
-	    	elseif (!$this->payments)                                                                   $this->defcoin = '';
-	    	elseif (!$this->defcoin)                                                                    $this->defcoin = key($this->payments);
+            if ($this->defcoin && $this->payments && !isset($this->payments[$this->defcoin]))           $this->defcoin = key($this->payments);
+            elseif (!$this->payments)                                                                   $this->defcoin = '';
+            elseif (!$this->defcoin)                                                                    $this->defcoin = key($this->payments);
 
-	    	if (!isset($this->showhidemenu[$this->langmenu])) 	$this->langmenu     = 'show';
-	    	if ($this->langmenu == 'hide') define("CRYPTOBOX_LANGUAGE_HTMLID_IGNORE", TRUE);
+            if (!isset($this->showhidemenu[$this->langmenu])) 	$this->langmenu     = 'show';
+            if ($this->langmenu == 'hide') define("CRYPTOBOX_LANGUAGE_HTMLID_IGNORE", TRUE);
 
 
-	    	return true;
+            return true;
 	    }
 
 
 	    /*
-	     * 18.3
+	     * 23.3
 	    */
 	   	public function init_form_fields()
 	    {
@@ -1083,7 +1157,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 	    	$logos[8] = __( "8. Bitcoin Cash Logo green", GOURLWC );
 	    	$logos[9] = __( "9. Bitcoin Cash Logo white", GOURLWC );
 	    	$logos[10] = __( "10. Bitcoin Cash Logo with text", GOURLWC );
-	    	
+
 	    	$this->form_fields = array(
                     'enabled'		=> array(
                     'title'   	  	=> __( 'Enable/Disable', GOURLWC ),
@@ -1114,19 +1188,19 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
                     'title' 		=> __('Exchange Rate Multiplier', GOURLWC ),
                     'type' 		=> 'text',
                     'default' 	=> '1.00',
-                    'description' 	=> __('The system uses the multiplier rate with today LIVE cryptocurrency exchange rates (which are updated every 30 minutes) when the transaction is calculating from a fiat currency (e.g. USD, EUR, etc) to cryptocurrency. <br> Example: <b>1.05</b> - will add an extra 5% to the total price in bitcoin/altcoins, <b>0.85</b> - will be a 15% discount for the price in bitcoin/altcoins. Default: 1.00 ', GOURLWC )
+                    'description' 	=> __('The system uses the multiplier rate with today LIVE cryptocurrency exchange rates (which are updated every 30 minutes) when the transaction is calculating from a fiat currency (e.g. USD, EUR, etc) to cryptocurrency. <br> Example: <b>1.05</b> - will add an extra 5% to the total price in bitcoin/altcoins, <b>0.85</b> - will be a 15% discount for the price in bitcoin/altcoins. Default: 1.00', GOURLWC )
                 ),
 
                     'woosubscr'	=> array(
                     'title'       	=> "<br>".__( 'WooCommerce Subscriptions Plugin Supported', GOURLWC ),
                     'type'        	=> 'title',
-                    'description' 	=> '<img width="45" alt="new" src="'.plugins_url('/images/new.png', __FILE__).'" style="float:left;margin:3px 8px">' . sprintf(__( "Free Open Source <a href='%s'>WooCommerce Subscriptions</a> allows you to introduce a variety of subscriptions for physical or virtual products and services.<br>Create product-of-the-month clubs, weekly service subscriptions or even yearly software billing packages. Add sign-up fees, offer free trials, or set expiration periods. Download <b>Free WooCommerce Subscriptions Plugin</b> from <a href='%s'>Github</a> (direct <a href='%s'>download link</a>). Optional - you can buy '1 year of technical support' <a href='%s'>here</a>", GOURLWC ), "https://docs.woocommerce.com/document/subscriptions/", "https://github.com/wp-premium/woocommerce-subscriptions", "https://github.com/wp-premium/woocommerce-subscriptions/archive/master.zip", "https://woocommerce.com/products/woocommerce-subscriptions/", "https://gourl.io/images/woocommerce/screenshot-10.png", $this->url, "https://gourl.io/lib/examples/example_customize_box.php?alang=en#hacrypto") . "<br><br>"
+                    'description' 	=> '<img width="45" alt="new" src="'.plugins_url('/images/new.png', __FILE__).'" style="float:left;margin:3px 8px">' . sprintf(__( "Free Open Source Plugin <a href='%s'>WooCommerce Subscriptions</a> allows you to introduce a variety of subscriptions for physical or virtual products and services.<br>Create product-of-the-month clubs, weekly service subscriptions or even yearly software billing packages. Add sign-up fees, offer free trials, or set expiration periods. Download <b>Free WooCommerce Subscriptions Plugin</b> from <a href='%s'>Github</a> (direct <a href='%s'>download link</a>). Optional - you can buy '1 year of technical support' <a href='%s'>here</a>", GOURLWC ), "https://docs.woocommerce.com/document/subscriptions/", "https://github.com/wp-premium/woocommerce-subscriptions", "https://github.com/wp-premium/woocommerce-subscriptions/archive/master.zip", "https://woocommerce.com/products/woocommerce-subscriptions/", "https://gourl.io/images/woocommerce/screenshot-10.png", $this->url, "https://gourl.io/lib/examples/example_customize_box.php?alang=en#hacrypto") . "<br><br>"
                 ),
                 	  'sbc_notrial'	=> array(
                     'title'   	=> __( 'Trial Subscription', GOURLWC ),
                     'type'    	=> 'checkbox',
-			  'default'	  	=> 'no', 
-                    'label'   	=> sprintf(__( "Do NOT Allow <a href='%s'>WooCommerce Subscriptions</a> Trial Period with Cryptocurrency (Free Trial or Special Price)", GOURLWC ), "https://woocommerce.com/products/woocommerce-subscriptions/")
+			  'default'	  	=> 'no',
+                    'label'   	=> sprintf(__( "Do NOT Allow pay for Trial Period in <a href='%s'>WooCommerce Subscriptions</a> with Cryptocurrency (Free Trial or Special Price)", GOURLWC ), "https://woocommerce.com/products/woocommerce-subscriptions/")
                 ),
                     'sbc_notrialtxt'=> array(
                     'title'       	=> __( 'Trial Subscription NOT Allowed - Custom Text', GOURLWC ),
@@ -1161,15 +1235,17 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
                     'description' 	=> __("About one hour after the payment is received, the bitcoin transaction should get 6 confirmations (for transactions using other cryptocoins ~ 20-30min).<br>A transaction confirmation is needed to prevent double spending of the same money", GOURLWC)
                 ),
                     'cryptoprice' => array(
-                    'title' 		=> __('Crypto Price on Product Page', GOURLWC ) . '<br><img width="35" alt="new" src="'.plugins_url('/images/new.png', __FILE__).'" style="float:left;margin:3px 8px">',
+                    'title' 		=> __('Additional Crypto Price on Product Page', GOURLWC ) . '<br><img width="35" alt="new" src="'.plugins_url('/images/new.png', __FILE__).'" style="float:left;margin:3px 8px">',
                     'type' 		=> 'select',
-                    'options' 	=> $this->cryptorices,
+						  'class' 		=> 'wc-enhanced-select',
+                    'options' 	=> $this->cryptoprices,
                     'default' 	=> '',
-                    'description' 	=> __("Display additional crypto price/s with fiat price on the WooCommerce product page. For, example: $100.25 / 0.0145 &#579;", GOURLWC)
+                    'description' 	=> __("Display additional Bitcoin/Altcoin Price with Fiat Price on WooCommerce Product Page. For, example: $100.25 / 0.0145 &#579;", GOURLWC)
                 ),
                     'deflang' 	=> array(
                     'title' 		=> __('PaymentBox Language', GOURLWC ),
                     'type' 		=> 'select',
+						  'class' 		=> 'wc-enhanced-select',
                     'options' 	=> $this->languages,
                     'default' 	=> 'en',
                     'description' 	=> __("Default Crypto Payment Box Localisation", GOURLWC)
@@ -1234,7 +1310,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
     /*
-     * 18.4 Admin footer page text
+     * 23.4 Admin footer page text
      */
 	public function admin_footer_text()
     {
@@ -1245,7 +1321,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
     /*
-     * 18.5 Forward to WC Checkout Page
+     * 23.5 Forward to WC Checkout Page
      */
     public function process_payment( $order_id )
     {
@@ -1330,7 +1406,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
         else $total_html = "<b>" . $total_html . "</b>";
 
         $userprofile = (!$userID) ? __('Guest', GOURLWC) : "<a href='".admin_url("user-edit.php?user_id=".$userID)."'>user".$userID."</a>";
-        $txt = ($total == 0) ? "No Payment Needed! <a href='%s'>Order Page</a>" : "Awaiting Cryptocurrency <a href='%s'>Payment</a>";	        
+        $txt = ($total == 0) ? "No Payment Needed! <a href='%s'>Order Page</a>" : "Awaiting Cryptocurrency <a href='%s'>Payment</a>";
         $order->add_order_note(sprintf(__("Order Created by %s<br>Order Total: %s<br>".$txt." ...", GOURLWC), $userprofile, $total_html, $orderpage) . '<br>');
 
         // Remove cart
@@ -1348,7 +1424,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
     /*
-     * 18.6 WC Order Checkout Page
+     * 23.6 WC Order Checkout Page
      */
     public function cryptocoin_payment( $order_id )
 	{
@@ -1418,11 +1494,11 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 						src='".$gourl->box_image()."' border='0'></a></div>";
 			}
 			elseif (class_exists( 'WC_Subscriptions_Order' ) && $amount == 0) // Trial Subscription
-			{        
+			{
 				$status = $this->ostatus2;
-				$order->update_status($status);  
+				$order->update_status($status);
 				if ($status == "completed") $order->payment_complete();
-				
+
 			}
 			elseif ($amount <= 0)
 			{
@@ -1499,7 +1575,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	    /*
-	     * 18.7 GoUrl Bitcoin Gateway - Instant Payment Notification
+	     * 23.7 GoUrl Bitcoin Gateway - Instant Payment Notification
 	     */
 	    public function gourlcallback( $user_id, $order_id, $payment_details, $box_status)
 	    {
@@ -1618,7 +1694,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
         /**
-        * 18.8 scheduled_subscription_payment function.
+        * 23.8 scheduled_subscription_payment function.
         */
         public function unable_to_update_subscription_status( $subscr_order, $new_status, $old_status  )
         {
@@ -1648,7 +1724,7 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
 	/*
-	 *  19. Instant Payment Notification Function - pluginname."_gourlcallback"
+	 *  24. Instant Payment Notification Function - pluginname."_gourlcallback"
 	 *
 	 *  This function will appear every time by GoUrl Bitcoin Gateway when a new payment from any user is received successfully.
 	 *  Function gets user_ID - user who made payment, current order_ID (the same value as you provided to bitcoin payment gateway),
@@ -1684,6 +1760,6 @@ if (!function_exists('gourl_wc_gateway_load') && !function_exists('gourl_wc_acti
 
 
  }
- // end gourl_wc_gateway_load()                  
+ // end gourl_wc_gateway_load()   
 
 }
