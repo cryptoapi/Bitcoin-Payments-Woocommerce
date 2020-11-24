@@ -5,8 +5,8 @@ Plugin URI: https://gourl.io/bitcoin-payments-woocommerce.html
 Author URI: https://gourl.io
 Tags: woocommerce, bitcoin, accept bitcoin, bitcoin payments, bitcoin woocommerce, bitcoin wordpress plugin, bitcoin wordpress, bitcoincash, bitcoin cash, bitcoinsv, bitcoins, gourl, cryptocurrency, btc, coinbase, bitpay, ecommerce, bitcoin sv, white label, paypal, accept bitcoin, shop, payment, payment gateway, litecoin, dogecoin, dash, speedcoin, vertcoin, reddcoin, feathercoin, potcoin, peercoin
 Requires at least: 3.5
-Tested up to: 5.5
-Stable Tag: 1.3.6
+Tested up to: 5.6
+Stable Tag: 1.3.7
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -97,6 +97,9 @@ In the search field type "GoUrl WooCommerce" and click Search Plugins. Once you'
 
 == Changelog == 
 
+
+= 1.3.7 =
+*  Compatible with WooCommerce 4.7
 
 = 1.3.6 =
 Minor updates
@@ -209,4 +212,4 @@ Minor updates
 
 = 1.0.0 =
 Initial Release 
-            
+                
