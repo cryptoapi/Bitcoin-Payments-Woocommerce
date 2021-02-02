@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoUrl WooCommerce - Bitcoin Altcoin Payment Gateway "
 "Addon\n"
-"POT-Creation-Date: 2020-11-24 18:41+0000\n"
-"PO-Revision-Date: 2020-11-24 18:41+0000\n"
+"POT-Creation-Date: 2021-02-02 21:08+0000\n"
+"PO-Revision-Date: 2021-02-02 21:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -243,7 +243,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Your GoUrl Bitcoin Gateway <a href='%s'>Main Plugin</a> version is too old. "
-"Requires 1.6.3 or higher version. Please <a href='%s'>update</a> to latest "
+"Requires 1.6.4 or higher version. Please <a href='%s'>update</a> to latest "
 "version."
 msgstr ""
 
@@ -317,8 +317,9 @@ msgstr ""
 #: gourl-woocommerce.php:1017
 #, php-format
 msgid ""
-"NEW!!! Free <a href='%s'>WooCommerce Subscriptions</a> Plugin Supported. <a "
-"href='%s'>More Info and Download Link &#187;</a>"
+"NEW!!! Free <a href='%s'>WooCommerce Subscriptions</a> Plugin Supported. "
+"<br><a href='%s'>More Info and FREE Open Source Subscriptions Download Link "
+"&#187;</a>"
 msgstr ""
 
 #: gourl-woocommerce.php:1114
@@ -684,7 +685,7 @@ msgstr ""
 msgid ""
 "Sorry, but there was an error processing your order. Please try a different "
 "payment method or contact us if you need assistance (Bitcoin Gateway Plugin "
-"v1.6.3+ not configured / %s not activated)."
+"v1.6.4+ not configured / %s not activated)."
 msgstr ""
 
 #: gourl-woocommerce.php:1493
